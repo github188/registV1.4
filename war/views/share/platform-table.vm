@@ -1,0 +1,11 @@
+<table width="100%" border="0" cellpadding="1" cellspacing="1" id="${position}T">
+	<tr class="tdTitle">
+		<td>Æ½Ì¨Ãû³Æ</td>
+    </tr>
+    #foreach($platform in $platforms)
+    #parse("/views/r-s.vm")
+	<tr class="$class" id="platformCmsId_${platform.id}">
+			<td ondblclick="getResourceByOuterPlatform('$platform.id','$r.cmsId','$platform.name')" ><span id="cmsId_$platform.id">$platform.name</span></td>
+	</tr>
+	#end
+</table>

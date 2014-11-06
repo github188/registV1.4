@@ -1,0 +1,10 @@
+<h5>当前设备:$device.name</h5>
+<div style="margin-top:5px;">
+    <button  onclick='rebootVIC("$device.naming")' style='cursor: pointer;'>重启</button> 
+    <button onclick='queryStatus("$device.naming")' style='cursor: pointer;'>查询状态</button>
+    <button onclick='queryVicInfo("$device.naming")' style='cursor: pointer;'>查询详情</button>
+    <button onclick='setGuard("$device.naming")' style='cursor: pointer;'>布防</button>
+    <button onclick='resetGuard("$device.naming")' style='cursor: pointer;'>撤防</button>
+    <button onclick='resetAlarm("$device.naming")' style='cursor: pointer;'>报警复位</button>
+    <button onclick='alarmByNaming("$device.naming")' style='cursor: pointer;'>报警</button>
+</div>

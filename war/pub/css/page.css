@@ -1,0 +1,110 @@
+.pageBar {
+	clear: both;
+	color: #909090;
+}
+
+.pageBar .num {
+	font-size: 10px;
+	color: #909090;
+}
+
+.pageBar .page {
+	text-align: right;
+	color: #909090;
+}
+
+.pageBar .page .disabled {
+	text-decoration: none;
+}
+
+.pageBar .page a {
+	margin: 0 2px;
+}
+
+.pageBar .page .current {
+	color: #000;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.LPageBar,.LPageBar * {
+	font-size: 12px;
+	line-height: 24px;
+	text-align: center;
+}
+
+.LPageBar .page a {
+	margin: 0 3px;
+	padding: 1px 6px 3px 6px;
+	border: 1px solid #bbdded;
+}
+
+.LPageBar .page a:hover {
+	background: #bbdded;
+}
+
+.LPageBar .page .current {
+	font-weight: bold;
+	margin: 0 5px;
+}
+
+.pageSize{
+	color:#2A5685;
+	cursor: pointer;
+}
+
+.firstPage{
+	color:#5B7C97;
+	font-weight: bold;
+	cursor: pointer;
+	background:url(../images/default/grid/page-first.gif) no-repeat;
+}
+
+.firstPageDisabled{
+	color:#5B7C97;
+	font-weight: bold;
+	background:url(../images/default/grid/page-first.gif) no-repeat;
+}
+.lastPage{
+	color:#5B7C97;
+	font-weight: bold;
+	cursor: pointer;
+	background:url(../images/default/grid/page-last.gif) no-repeat;
+}
+
+.lastPageDisabled{
+	color:#5B7C97;
+	font-weight: bold;
+	background:url(../images/default/grid/page-last.gif) no-repeat;
+}
+
+
+.prevPage{
+	color:#5B7C97;
+	font-weight: bold;
+	cursor: pointer;
+	background:url(../images/default/grid/page-prev.gif) no-repeat;
+}
+.prevPageDisabled{
+	color:#5B7C97;
+	font-weight: bold;
+	background:url(../images/default/grid/page-prev.gif) no-repeat;
+}
+
+.nextPage{
+	color:#5B7C97;
+	font-weight: bold;
+	cursor: pointer;
+	background:url(../images/default/grid/page-next.gif) no-repeat;
+}
+.nextPageDisabled{
+	color:#5B7C97;
+	font-weight: bold;
+	background:url(../images/default/grid/page-next.gif) no-repeat;
+}
+.goPage{
+	color:#5B7C97;
+	font-weight: bold;
+	cursor: pointer;
+	background:url(../images/default/layout/expand.gif) no-repeat;
+}

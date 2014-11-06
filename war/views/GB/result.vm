@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="GBK" ?>
+<message>
+	<result msg="$msg">$!result</result>
+	#if($platformId)
+		<platform>$platformId</platform>
+	#end
+</message>

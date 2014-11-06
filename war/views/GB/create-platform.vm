@@ -1,0 +1,49 @@
+<form id="createParentPlatformForm" class="form-horizontal" role="form">
+	<input type="hidden" name="ownerId" value="$ownerId"/>
+	<div class="form-body">
+       <div class="form-group">
+          <label  class="col-md-3 control-label">上级平台名称<span class="required">*</span></label>
+          <div class="col-md-9">
+			 <input type="text" name="platform.name" value="" class="form-control" />
+          </div>
+		</div>
+       <div class="form-group">
+          <label  class="col-md-3 control-label">上级平台编号<span class="required">*</span></label>
+          <div class="col-md-9">
+			 <input type="text" name="platform.cmsId" value="" class="form-control" />
+          </div>
+		</div>
+       <div class="form-group">
+          <label  class="col-md-3 control-label">上级平台密码<span class="required">*</span></label>
+          <div class="col-md-9">
+			 <input type="password" name="platform.password" value="" class="form-control" />
+          </div>
+		</div>
+		<div class="form-group">
+          <label  class="col-md-3 control-label">平台名称<span class="required">*</span></label>
+          <div class="col-md-9">
+			 <input type="hidden" name="platformId" value="" class="form-control" />
+			 <input type="text" id="platformName" name="platformName" onclick="getPlatformTree()" readonly="true" class="form-control" />
+          </div>
+		</div>
+		<div class="form-group">
+          <label  class="col-md-3 control-label">平台国标编号<span class="required">*</span></label>
+          <div class="col-md-9">
+			 <input type="text" name="platform.childCmsId" value="" class="form-control" />
+          </div>
+		</div>
+	    <div class="form-group">
+          <div class="col-md-12" style="text-align:center;">
+			 <button type="submit" class="btn-success">
+            	提 交 <i class="m-icon-swapright m-icon-white"></i>
+            </button> 
+          </div>
+       </div>
+	</div>
+</form>
+<script>
+      jQuery(document).ready(function() {
+	  	FormValidation.init();
+	  	validPlatformForm('createParentPlatformForm',createParentPlatform);	
+      });
+</script>

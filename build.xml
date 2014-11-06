@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" ?>
+<project name="regist2.3.3.1" basedir="." default="war_me">	
+	<target name="clean_me">
+	    	<delete file=".\regist.war"/>
+    </target>
+	<target name="clean_src">
+	    	<delete file=".\regist_src.war"/>
+    </target>
+	
+	<target name="clean_classes">
+	    	<delete file=".\classes.zip"/>
+    </target>
+
+	<target name="war_me" depends="clean_me,war_me_src">
+			<war destfile=".\regist.war" webxml=".\war\WEB-INF\web.xml" basedir=".\war">
+				 <manifest>
+						    <attribute name="Build-By" value="${user.name}" />
+						    <attribute name="Build-At" value="${touch.time}" />
+						   </manifest>
+			</war>
+    </target> 
+	
+	<target name="war_me_src" depends="clean_src">
+				<war destfile=".\regist_src.war" webxml=".\war\WEB-INF\web.xml" basedir=".\war">
+					 <fileset dir="src">
+						  <include name="**/*.java"/>
+					  </fileset>
+					 <fileset dir="dll">
+						  <include name="**/*.sql"/>
+					  </fileset>
+					 <manifest>
+							    <attribute name="Build-By" value="${user.name}" />
+							    <attribute name="Build-At" value="${touch.time}" />
+							   </manifest>
+				</war>
+	</target> 
+	
+	<tstamp>
+	      <format property="touch.time" pattern="yyyy-MM-dd HH:mm:ss" offset="-5" unit="hour"/>
+	  </tstamp>
+	<target name="jar">
+		<jar destfile="regist2.3.3.1.jar">
+		   <fileset dir="src">
+		    	<include name="**/*.java"/>
+		   </fileset>
+		   
+			<fileset dir="war/WEB-INF/classes">
+		    	<include name="**/*"/>
+		   </fileset>
+		   <manifest>
+		    <attribute name="Build-By" value="${user.name}" />
+		    <attribute name="Build-At" value="${touch.time}" />
+		   </manifest>
+		</jar>
+	</target>
+	<target name="classes" depends="clean_classes">
+			<jar destfile="classes.zip">
+					<fileset dir="war/WEB-INF/classes">
+				    	<include name="**/*"/>
+				   </fileset>
+			   <manifest>
+			    <attribute name="Build-By" value="${user.name}" />
+			    <attribute name="Build-At" value="${touch.time}" />
+			   </manifest>
+			</jar>
+		</target>
+	<target name="views">
+			<jar destfile="views.zip">
+			<fileset dir="war/views">
+						    	<include name="**/*"/>
+						   </fileset>
+						   
+			   <manifest>
+			    <attribute name="Build-By" value="${user.name}" />
+			    <attribute name="Build-At" value="${touch.time}" />
+			   </manifest>
+			</jar>
+		</target>
+		<target name="pub">
+			<jar destfile="pub.zip">
+			<fileset dir="war/pub">
+						    	<include name="**/*"/>
+						   </fileset>
+			   <manifest>
+			    <attribute name="Build-By" value="${user.name}" />
+			    <attribute name="Build-At" value="${touch.time}" />
+			   </manifest>
+			</jar>
+		</target>
+</project>

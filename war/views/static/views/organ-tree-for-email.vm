@@ -1,0 +1,15 @@
+[
+  {% for organ in organs %}
+  	{ "id" : "{{organ.id}}",  "state": {"selected" :false},"a_attr":{"permission":"{{organ.permission}}","style":{%if organ.permission=='11'%}"color:green"{%else%}"color:orangered"{%endif%}},"text" : "{{organ.name}}", "children" : {% if organ.hasChild or (parentChildenMap and (parentChildenMap[organ.id]|length>0 or organ.staffs|length>0 or organ.students|length>0)) %}true{%else%}false{%endif%},"type" : {% if organ.owner %}"private_organ"{%else%}"public_organ" {%endif%}} {% if not loop.last or students|length!=0 or staffs|length!=0%},{% endif%}
+  {% endfor %}
+  {% if students%}
+  {% for student in students %}
+  	{ "id" : "{{student.id}}_Student_{{organId}}","a_attr":{"class": "show_tooltip", "title": "<table><tr><td>姓名：</td><td>{{student.name}}<td></tr><tr><td>手机：</td><td>{{student.mobile}}<td></tr><tr><td>邮箱：</td><td>{{student.email}}<td></tr></table>"}, "text" : "{{student.name}}", "children" : false, "type" : {% if student.owner %}"private_person"{%else%}"public_person"{%endif%} } {% if not loop.last %},{% endif%}
+  {% endfor %}
+  {%endif%}
+  {%if staffs%}
+  {% for staff in staffs %}
+  	{ "id" : "{{staff.id}}_Staff_{{organId}}", "a_attr":{"class": "show_tooltip", "title": "<table><tr><td>姓名：</td><td>{{staff.name}}<td></tr><tr><td>手机：</td><td>{{staff.mobile}}<td></tr><tr><td>邮箱：</td><td>{{staff.email}}<td></tr></table>"},"text":"{{staff.name}}", "children" : false, "type" : {% if staff.owner %}"private_person"{%else%}"public_person" {%endif%}} {% if not loop.last %},{% endif%}
+  {% endfor %}
+  {%endif%}
+]

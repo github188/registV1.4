@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="GBK"?>
+<User userNmaing="$userNaming">
+	#if($user != "no.platform")
+		#platformTreeXml($platform)
+		#outerPlatformTree($outerPlatoforms)
+	#end
+</User>
+## Velocity Template.
+#macro(platformTreeXml $platform)
+	#set($children = $platform.children)
+	#if($childMap.get($platform.id))
+		<organ id="0000000000000000000000000$platform.cmsId" name="$!platform.name" isShare="true" isPlatform="true"  #if(!$idMap.keySet().contains($platform.cmsId)) isGB="false" #else isGB="true" #end >
+			    #foreach($child in $children)
+			    	#platformTreeXml($child)
+			    #end	
+		</organ>
+	#else
+	    #foreach($child in $children)
+	    	#platformTreeXml($child)
+	    #end	
+	#end
+#end
+#macro(outerPlatformTree $platforms)
+	#foreach($p in $platforms)
+		#if("$p.id" != "$platform.id"  && $allPlatforms.get($p.id))
+			<organ id="0000000000000000000000000$p.id" name="$p.name" isShare="true" isPlatform="true"  #if(!$idMap.keySet().contains($platform.cmsId)) isGB="false" #else isGB="true" #end>
+					#if($p.children.size()>0)
+					    #outerPlatformTree($p.children)
+				    #end		
+			</organ>
+		#end
+	#end
+#end

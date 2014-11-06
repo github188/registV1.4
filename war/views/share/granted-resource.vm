@@ -1,0 +1,41 @@
+<div style="margin-buttom:2px;">
+	<div class="title" id="platformName"></div>
+	<form id="userPermissionForm">
+		#parse("/views/resource-input.vm")
+		<input type="hidden" id="platformCmsId" name="r.platformCmsId" value="$r.platformCmsId"/>
+		<input type="hidden" id="cmsId" name="r.cmsId" value="$r.cmsId"/>
+		<input type="hidden" id="organId" name="r.organId" value="all"/>
+		<input type="hidden" id="selectOrganFuncton" value="getResourceByOuterPlatformViaPost"/>
+		<div style="float:left;">
+		<table>
+			<tr>
+				<td align="right">所在机构:</td>
+				<td><input type="text" name="organName" id="organName"  value="所有机构" style="width:180px;" onclick="showOptions('organName','organOptions','userPermissionForm');"  onkeyup="return organKeyDownEvent(event,'organName','organOptions','userPermissionForm');" onblur="hiddenOrgans(event,'options','setOrganId(\'userPermissionForm\',\'getOrganIdByName\',\'organId\',\'organName\')');"/></td>
+			</tr>
+			<tr>
+			   	<td align="right">名称:</td>
+			   	<td>
+			   		<input type="text" name="r.name"  style="width:180px;" value="$!name" onkeydown="if(event.keyCode==13) { getResourceByOuterPlatformViaPost('resourceList','currentResourceType');return false}"/>
+				</td>
+				<td>类型:</td>
+			   	<td><select name="r.resourceType" id="type" style="width:100px;" onchange="getResourceByOuterPlatformViaPost('resourceList','currentResourceType');">
+						#parse("/views/resource-option.vm")
+					</select>
+				</td>
+				<td>
+					<input type="button" value="查询" onclick="getResourceByOuterPlatformViaPost('resourceList','currentResourceType');"/>
+				</td>
+			   	<td>
+					<input type="button" onclick="regainResourceFormOuterPlatform('resourceList','type')" value="修改"/></td>
+			   	</td>
+			</tr>
+		</table>
+		</div>
+		<div id="alertMsg" class="alertMsg" style="clear:right;height:20px;">
+		</div>
+	</form>
+</div>
+<div>
+<div id="resourceList" class="resourceList">
+#parse("/views/share/granted-resource-list.vm")
+</div>

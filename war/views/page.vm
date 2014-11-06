@@ -1,0 +1,48 @@
+	<div id="research" style="margin-top:5px;">
+	<input type="hidden" id="${position}CurrentPage" size="4" name="page.currentPage" value="$page.currentPage"  />
+	##<input type="hidden" id="${position}PageSize" size="4" name="page.pageSize" value="$page.pageSize" />
+	<input type="hidden" id="${position}RecordCount" size="4" name="page.recordCount" value="$page.recordCount" />
+		#if($page.recordCount==0)
+			
+		#else
+			#if($page.pageCount==1)
+		
+			#else				
+			<div class="LPageBar">
+				#if(!$showPageSize)
+				每页<select id="${position}PageSize" name="page.pageSize" onchange="#if($selected)${selectedFunction};#end updatePageSize('${position}CurrentPage',${page.pageCount},'${position}','${position}PageForm','$action');" style="height:18px;width:45px;">
+					<option value="10" #if($page.pageSize==10)selected="true"#end>10</option>	 	
+					<option value="15" #if($page.pageSize==15)selected="true"#end>15</option>	 	
+					<option value="20" #if($page.pageSize==20)selected="true"#end>20</option>	 	
+ 				</select>
+ 				#end
+				共${page.recordCount}条记录,共${page.pageCount}页			
+				#if("$page.currentPage"=="1")				
+					<span class="firstPageDisabled">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<span class="prevPageDisabled">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>	 
+				#else
+					<span class="firstPage" onclick="#if($selected)${selectedFunction};#end pageNumber('${position}CurrentPage',1,'$position','${position}PageForm','$action');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<span class="prevPage" onclick=" #if($selected)${selectedFunction};#end return previous('${position}CurrentPage','$position','${position}PageForm','$action');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>	
+				#end
+				<span class="page">		
+			#foreach($pageNo in $page.pageList)										
+					#if("$page.currentPage"=="$pageNo")
+						<span class="current">$pageNo</span>
+					#else
+						<a style="color:#800080;cursor:pointer;" id='pageNo$pageNo' onmouseout="changeACss('pageNo$pageNo','#ffffff')"  onmouseover="changeACss('pageNo$pageNo','#BBDDED')" onclick="pageNumber('$currentPage',$pageNo,'$position','$form','$action');">$pageNo</a>
+					#end									
+			#end
+			</span>
+				#if("$page.currentPage"=="$page.pageCount")
+					<span class="nextPageDisabled">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<span class="lastPageDisabled">&nbsp;&nbsp;&nbsp;&nbsp;</span>			
+				#else
+					<span class="nextPage" onclick="#if($selected)${selectedFunction};#end next('${position}CurrentPage',${page.pageCount},'${position}','${position}PageForm','$action');">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<span class="lastPage" onclick="#if($selected)${selectedFunction};#end pageNumber('${position}CurrentPage',${page.pageCount},'${position}','${position}PageForm','$action');">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				#end
+				<span class="goPage" onclick="#if($selected)${selectedFunction};#end gotoPageNO('${position}CurrentPage','$position','${position}PageForm','$action','$page.pageCount');">&nbsp;&nbsp;&nbsp;&nbsp;</span><span><input  style="text-align:left;line-height:14px;width:30px;" type="text" id="pageNO" name="pageNO" value="$page.currentPage" onkeydown="if(event.keyCode==13){#if($selected)${selectedFunction};#end gotoPageNO('${position}CurrentPage','$position','${position}PageForm','$action','$page.pageCount');return false;}"/></span>					
+			</div>
+			#end	
+		#end
+	</div>
+	<a href="#$position" id="location_div"></a>

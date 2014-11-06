@@ -1,0 +1,17 @@
+[
+    {"result":"$result",
+	  "organCount":"$organCount",
+	  "serverCount":"$serverCount",
+	  "deviceCount":"$deviceCount",
+	  "sumNum":"$sumNum",
+	  "currentSumNum":"$currentSumNum",
+	  "total":"$total"
+	  #if($deviceGroup.size()>0),#end
+	  #foreach($row in $deviceGroup)
+		#set($type = "type")
+		#set($total = "total")
+		"$row.get($type)":"$row.get($total)"
+		#if($velocityHasNext),#end
+	  #end
+    }
+]

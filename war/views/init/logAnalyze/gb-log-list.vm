@@ -1,0 +1,38 @@
+ <div class="row">
+            <div class="col-md-12">
+               <!-- BEGIN SAMPLE TABLE PORTLET-->
+               <div class="portlet">
+                  <div class="portlet-title">
+                     <div class="caption"><i class="icon-bell"></i>日志列表 <a class="btn btn-success" data-toggle="modal" href="#basic"><i class="icon-search"></i>搜索</a></div>
+                  </div>
+                  <div class="portlet-body">
+                     <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-advance table-hover">
+                           <thead>
+                              <tr>
+                                 <th class="hidden-xs"><i class="fa fa-file-text-o"></i>文件名称</th>
+								 <th style="width:15%"><i class="fa fa-spoon"></i> 文件大小</th>
+								 <th class="hidden-xs"><i class="fa fa-clock-o"></i>最后修改时间</th>
+                                 <th><i class="fa fa-file-archive-o"></i> 操作</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+							#foreach($logFile in $logFiles)
+                              <tr>
+                                 <td class="highlight">$logFile.name</td>
+                                 <td class="hidden-xs">$logFile.length</td>
+								 <td class="hidden-xs">$date.format('medium',$logFile.lastModified)</td>
+                                 <td>
+									<a class="btn btn-info" href='$ctxpath/logAnalyze/download?fileName=$logFile.path'><i class="fa fa-download"></i>下载</a>
+									&nbsp;
+									<a class="btn btn-danger" href='#' onclick="LogAnalyze.deleteLogFile('$logFile.path')"><i class="fa fa-trash-o"></i>删除</a>
+								 </td>
+                              </tr>
+							  #end
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+            </div>
+ </div>

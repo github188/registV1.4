@@ -1,0 +1,15 @@
+<div class="processOne">
+		<div style="float:left;margin-top:5px;margin-left:20px;">
+			共享流程:
+		</div>
+		<div class="outerProcess" id="o1">选择平台</div>
+		<div class="processOneNext"></div>
+		<div class="outerProcess" id="o2">选择资源</div>
+		<div class="processOneNext"></div>
+		<div class="outerProcess" id="o3">查看选中的资源</div>
+		<div class="processOneNext"></div>
+		<div class="outerProcess" id="o4">共享确认</div>
+	</div>
+<div id="shareArea" style="clear:both;">
+	#parse("/views/share/share-platform.vm")
+</div>

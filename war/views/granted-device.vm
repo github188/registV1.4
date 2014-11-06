@@ -1,0 +1,12 @@
+	#parse("/views/device-table.vm")
+	<div style="float:left">
+		#if($selectedResource=="selectedResource")
+			<input type="button" onclick="selectedResource();" value="上一步"/>
+			<input type="button" onclick="secondGrants('$position','resourceType')" value="下一步"/>
+		#else
+			<input type="button" onclick="querySelectedResource('$position','resourceType')" value="下一步"/>
+		#end
+	</div>
+	<div id="alertMsg" class="alertMsg" style="clear:right;height:20px;">
+	</div>
+	#parse("/views/granted-form.vm")

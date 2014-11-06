@@ -1,0 +1,45 @@
+#set($position="resourceList")
+#set($action="$ctxpath/gbOuterDevice/getResourceList")
+#set($showPageSize="false")
+<table width="100%" border="0" cellpadding="1" cellspacing="1" id="${position}T">
+		<tr class="tdTitle">
+			<td style="width:30%">设备名称</td>
+			<td>所属机构</td>
+			<td>所属平台</td>
+			#if($r.resourceType=="VIC" || $r.resourceType=="IPVIC")
+			#end
+	    </tr>
+	    #foreach($device in $resources)
+	    #parse("/views/r-s.vm")
+		<tr class="$class">
+			#if($r.resourceType=="VIC" || $r.resourceType=="IPVIC")
+				<td><div onmouseover='showTipsByUrl(event,this,"/gbOuterDevice/getOperationContent?deviceId=$device.id")'  onmouseout='hideTips(event,this);'>$device.name</div></td>		
+				<td><div style="cursor:pointer;" ondblclick="setOrganIdForQuery('$device.platform.id','$device.platform.name','$device.organ.id','$device.organ.name')">$device.organ.name</div></td>		
+				<td style="width:70px;" align="center">$device.platform.name</td>		
+			#elseif($r.resourceType=="AIC")
+				<td><div onmouseover='showTips(event,this,"/$device.organPath")'  onmouseout='hideTips(event,this);'>$device.name</div></td>
+				<td><div style="cursor:pointer;" ondblclick="setOrganIdForQuery('$device.platform.id','$device.platform.name','$device.organ.id','$device.organ.name')">$device.organ.name</div></td>
+				<td style="width:70px;" align="center">$device.platform.name</td>	
+			#end		
+		</tr>
+		#end
+			
+	</table>
+	<div style="clear:both;">
+        <form action="$action" id="${position}PageForm">
+        	<input type="hidden" id="cmsId" name="r.cmsId" value="$!r.cmsId"/>
+        	<input type="hidden" id="organId" name="r.organId" value="$!r.organId"/>
+			<input type="hidden" name="r.first" value="false"/>
+			<input type="hidden" name="r.name" value="$!r.name"/>
+			<input type="hidden" name="r.resourceType" value="$!r.resourceType"/>
+        	#parse("/views/page.vm")
+        </form>    	
+	</div>
+	<br />
+	<input type="button" onclick="testDivRefresh('test')" value="查询返回状态"/>
+	<br />
+	<div id = "query_result">
+	</div>
+	<div id="alertMsg" class="alertMsg" style="clear:right;	position:relative;top:50px;left:-50px;z-index:1000">
+	</div>
+	

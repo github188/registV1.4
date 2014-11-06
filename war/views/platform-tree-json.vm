@@ -1,0 +1,35 @@
+#if($root=="source")
+[
+	{ 
+        "text": "<div class='organLi' id='all' onclick='selectPlatform(\"所有下级平台\",\"\",\"platformTreeArea\");'>所有下级平台</div>",
+        "expanded": true, 
+        "classes":"treeview-gray",
+        "hasChildren":true,
+        "id":"all",
+        "children":
+        	[
+			#foreach($child in $children) 
+			    { 
+			        "text": "<div class='organLi' id='$child.id' onclick='selectPlatform(\"$child.name\",\"$child.id\",\"platformTreeArea\");'>$child.name</div>",
+			        "expanded": false, 
+			        "classes":"treeview-gray",
+			        "hasChildren": #if($child.children.size()>0)true #else false #end,
+			        "id":"$child.id"
+			    }#if($velocityCount<$children.size()),#end
+			#end
+		]
+    }
+]
+#else
+	[
+		#foreach($child in $children) 
+		    { 
+		        "text": "<div class='organLi' id='$child.id' onclick='selectPlatform(\"$child.name\",\"$child.id\",\"platformTreeArea\");'>$child.name</div>",
+		        "expanded": false, 
+		        "classes":"treeview-gray",
+		        "hasChildren": #if($child.children.size()>0)true #else false #end,
+		        "id":"$child.id"
+		    }#if($velocityCount<$children.size()),#end
+		#end
+	]
+#end

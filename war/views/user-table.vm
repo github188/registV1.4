@@ -1,0 +1,19 @@
+<table id="${position}T" class="table table-bordered table-hover with-check">
+		<thead>
+				<tr>
+        			<td style="width:60px;">&nbsp;</td>
+        			<td style="width:50%">用户名称</td>
+        			<td>所属机构</td>
+				</tr>
+	    </thead>
+		<tbody>
+	    #foreach($granted in $grantedList)
+	    #parse("/views/r-s.vm")
+		<tr class="$class">
+			<td style="width:60px;text-align:center;"><input type="checkbox" name="$granted.id" value="$granted.id" #if($userIdsMap.get($granted.id)) checked="true" #end/></td>
+			<td><div onmouseover='showTips(event,this,getContent("$granted.logonName","$granted.organ.name","$!granted.name","$granted.sex"))'  onmouseout='hideTips(event,this);'>$granted.logonName</div></td>		
+			<td>$granted.organ.name</td>		
+		</tr>
+		#end
+        </tbody>
+	</table> 

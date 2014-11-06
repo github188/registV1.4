@@ -1,0 +1,68 @@
+<table id="personList" class="table table-bordered table-hover with-check">
+	 <thead>
+          <tr>
+			 <th style="width:15%"></th>
+             <th style="width:30%">学工号</th>
+             <th style="width:40%">姓名</th>
+          </tr>
+       </thead>
+	   <tbody>
+        	{%for person in persons%}
+        	<tr style="color:{%if permission=='11' or person.owner==True%}green{%else%}black{%endif%}">
+        		<td>{%if permission=='11' or person.owner==True%}<input type="checkbox"  value="{{person.id}}"/>{%endif%}</td>
+        		<td style="cursor:pointer" onclick="showPersonDetail('{{person.id}}','{{permission=='11' or person.owner}}')">{{person.code}}</td>
+        		<td>{{person.name}}</td>
+        	</tr>
+        	{%endfor%}
+       </tbody>
+</table>
+<div class="input-group"><a href="javascript:;" class="btn btn-success" onclick="selectAll('personList');">全选</a>&nbsp;<a href="javascript:;" class="btn btn-success" onclick="unselect('personList')">反选</a>&nbsp;<a href="javascript:;" class="btn btn-danger" onclick="deletePerson()">删除</a><a href="javascript:;" class="btn btn-success" onclick="copyPersonToOrgan('{{organType}}')">添加到</a></div>
+{%include 'page.vm' %}
+
+{%if organType=='staff'%}
+<a style="visibility:hidden" id="staffOrganTreeForAddPersonModalEntry" data-target="#staffOrganTreeForAddPersonModal" data-toggle="modal"></a>
+<div id="staffOrganTreeForAddPersonModal" class="modal fade" tabindex="-1" data-width="400">
+        <div class="modal-dialog">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                 <h4 class="modal-title">教师组织机构</h4>
+              </div>
+              <div class="modal-body">
+                 <div class="row">
+                    <div class="col-md-12">
+						<a class="btn btn-success" href="javascript:;" onclick="confirmCopyPersonToOrgan('staffOrganTreeForAddPerson','Staff');"><i class="glyphicon glyphicon-asterisk"></i> 确定</a>
+						<div id="staffOrganTreeForAddPerson"></div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+</div>
+<script>
+	setStaffOrganTreeForAddPerson('{{organId}}');
+</script>
+{%else%}
+<a style="visibility:hidden" id="studentOrganTreeForAddPersonModalEntry" data-target="#studentOrganTreeForAddPersonModal" data-toggle="modal"></a>
+<div id="studentOrganTreeForAddPersonModal" class="modal fade" tabindex="-1" data-width="400">
+        <div class="modal-dialog">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                 <h4 class="modal-title">学生组织机构</h4>
+              </div>
+              <div class="modal-body">
+                 <div class="row">
+                    <div class="col-md-12">
+						<a class="btn btn-success" href="javascript:;" onclick="confirmCopyPersonToOrgan('studentOrganTreeForAddPerson','Student');"><i class="glyphicon glyphicon-asterisk"></i> 确定</a>
+						<div id="studentOrganTreeForAddPerson"></div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+</div>
+<script>
+	setStudentOrganTreeForAddPerson('{{organId}}');
+</script>
+{%endif%}

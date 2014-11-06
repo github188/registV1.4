@@ -1,0 +1,18 @@
+<ul id="platformTree" class="treeview-gray">
+	<li><div class="organLi" id="$platform.id" onclick="selectPlatform('$platform.name','$platform.id','allPlatformTreeArea');">$platform.name</div>
+		#generalAllPlatformTree($platform)	
+	</li>
+</ul>
+#macro(generalAllPlatformTree $parent)
+	#set($children = $parent.children)
+	<ul class="treeview-gray">
+		#foreach($child in $children)
+			<li>
+				<div class="organLi" id="$child.id" onclick="selectPlatform('$child.name','$child.id','allPlatformTreeArea');" >$child.name</div>
+				#if($child.children.size()>0)
+					#generalAllPlatformTree($child)
+				#end
+			</li>
+		#end
+	</ul>
+#end

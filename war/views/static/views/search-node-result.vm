@@ -1,0 +1,7 @@
+[
+	#foreach($path in $pathList)
+		{ "path" :"$path"}#if($velocityHasNext),#end
+	#end
+]
+
+	

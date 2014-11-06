@@ -1,0 +1,14 @@
+<table border="1" class="table table-bordered table-hover with-check">
+        <tbody>
+        	 {% for role in roles %}
+        	<tr id="{{role.id}}">
+        		<td><input type="checkbox" value="{{role.id}}" {%if role.id in myRoleIds%} checked="true"{%endif%}/>&nbsp;{{role.name}}</td>
+        	</tr>
+        	 {%endfor%}
+        	 {% for user in users %}
+        	<tr id="{{user.id}}">
+        		<td><input type="checkbox" value="{{user.id}}" {%if user.id in myUserIds%} checked="true"{%endif%}/>&nbsp;{{user.logonName}}</td>
+        	</tr>
+        	 {%endfor%}
+        </tbody>
+</table>

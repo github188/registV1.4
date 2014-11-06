@@ -1,0 +1,33 @@
+#if($userList)
+<table class="table table-striped  table-bordered table-hover">
+	<thead>
+			<tr>
+    			<th style="width:50%">用户名称</th>
+    			<th>所属机构</th>
+			</tr>
+    </thead>
+	<tbody id="updateUserList">
+    #foreach($granted in $userList)
+	<tr class="odd gradeX" id="user_$granted.id" >
+        <td><div style="cursor:pointer" onclick="UpdateGranted.showUserResource('$granted.id')">$granted.logonName</div></td>		
+        <td><div style="cursor:pointer" onclick="UpdateGranted.showUserResource('$granted.id')">$granted.organ.name</div></td>		
+	</tr>
+	#end
+    </tbody>
+</table>
+#end
+#if($roleList)
+	<table class="table table-striped  table-bordered table-hover">
+		<tr>
+			<th>角色名称</th>
+		</tr>
+		<tbody id="updateRoleList">
+	    #foreach($granted in $roleList)
+		<tr class="odd gradeX" id="role_$granted.id" style="cursor:pointer" onclick="UpdateGranted.showRoleResource('$granted.id')">
+            <td>$granted.name</td>		
+		</tr>
+		#end
+        </tbody>
+</table>
+#end
+#parse("/views/static/views/page.vm")

@@ -1,0 +1,7 @@
+#parse("/views/resource-input.vm")
+<input type="hidden" id="userIds" name="r.userIds"  value="$!r.userIds"/>
+<input type="hidden" id="roleIds" name="r.roleIds"  value="$!r.roleIds"/>
+
+<input type="hidden" id="cmsId" name="r.cmsId" value="$!r.cmsId"/>
+<input type="hidden" id="organId" name="r.organId" #if($r.organId)value="$r.organId"#else value="all" #end />
+<input type="hidden" id="ownerOrganId" name="r.ownerOrganId" #if($r.ownerOrganId) value="$r.ownerOrganId"#else value="all" #end />

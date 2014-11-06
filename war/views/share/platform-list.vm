@@ -1,0 +1,7 @@
+#set($position="resourceList")
+#parse("/views/platform-table.vm")
+<div style="float:left">
+	<input type="button" onclick="selected('$position');getResourcesForShare('true');" value="ÏÂÒ»²½"/>
+</div>
+<div id="alertMsg" class="alertMsg" style="clear:right;height:20px;">
+</div>

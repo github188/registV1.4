@@ -1,0 +1,30 @@
+#set($position="deviceList")
+#set($action="$ctxpath/gbShareDevice/showDevices")
+#set($showPageSize="false")
+<table width="100%" border="0" cellpadding="1" cellspacing="1" id="${position}T">
+		<tr class="tdTitle">
+			<td style="width:30%">设备名称</td>
+			<td>所属机构</td>
+			<td>所属平台</td>
+			<td colspan="5" style="width:30%">操作</td>
+	    </tr>
+	    #foreach($device in $devices)
+	    #parse("/views/r-s.vm")
+		<tr class="$class">
+				<td style="text-align:center;">$device.name</td>
+				<td>$device.organ.name</td>
+				<td>$device.platform.name</td>
+				<td><button onclick='alarmByNaming("$device.naming")' style='cursor: pointer;'>报警</button></td>	
+		</tr>
+		#end
+</table>
+	<div style="clear:both;">
+		<form action="$action" id="${position}PageForm">
+			<input type="hidden" name="name" value="$!name"/>
+			<input type="hidden" name="cmsId"  value="$!cmsId"/>
+			<input type="hidden" name="first" value="false"/>
+			<input type="hidden" name="type" value="$!type"/>
+			#parse("/views/page.vm")
+		</form>    	
+	</div>
+	

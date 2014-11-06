@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="GBK"?>
+<organ id="0000000000000000000000000420000}" name="湖北省公安厅"
+	isShare="true" isPlatform="true">
+	<organ id="0000000000000000000000000420200" name="黄石市" isShare="true"
+		isPlatform="true">
+		<organ id="0000000000200000000000000520035" name="黄石园林" isShare="true"
+			isPlatform="false">
+			<video_input_channel id="0000000000200000000000000490172"
+				subType="general_camera_vic" name="黄石80099(球)入口四"
+				naming="0000000000200000000000000490172:0000000000200000000000000480180:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490174"
+				subType="general_camera_vic" name="黄石80198(球)入口5"
+				naming="0000000000200000000000000490174:0000000000200000000000000480182:11.31.0.11:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490201"
+				subType="general_camera_vic" name="黄石80109(球)入口(加油站对面)"
+				naming="0000000000200000000000000490201:0000000000200000000000000480209:11.31.0.11:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490200"
+				subType="general_camera_vic" name="黄石80110(球)入口一停车场"
+				naming="0000000000200000000000000490200:0000000000200000000000000480208:11.31.0.11:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490004"
+				subType="general_camera_vic" name="黄石80080(高球)入口二"
+				naming="0000000000200000000000000490004:0000000000200000000000000480004:11.31.0.11:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490799"
+				subType="general_camera_vic" name="黄石80126(枪)入口(正奥电器对面)"
+				naming="0000000000200000000000000490799:0000000000200000000000000480655:11.31.0.11:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490800"
+				subType="general_camera_vic" name="黄石80127(枪)入口(正奥电器对面)"
+				naming="0000000000200000000000000490800:0000000000200000000000000480655:11.31.0.11:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490215"
+				subType="general_camera_vic" name="黄石80112(球)入口八(方亭旁)"
+				naming="0000000000200000000000000490215:0000000000200000000000000480223:11.31.0.11:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490005"
+				subType="general_camera_vic" name="黄石80077(高球)二码头"
+				naming="0000000000200000000000000490005:0000000000200000000000000480005:11.31.0.11:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490189"
+				subType="general_camera_vic" name="黄石80103(球)湖祥居"
+				naming="0000000000200000000000000490189:0000000000200000000000000480197:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490008"
+				subType="general_camera_vic" name="黄石80067(高球)竹影居"
+				naming="0000000000200000000000000490008:0000000000200000000000000480008:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490006"
+				subType="general_camera_vic" name="黄石00273(高球)楠竹林广场"
+				naming="0000000000200000000000000490006:0000000000200000000000000480006:11.31.0.11:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490007"
+				subType="general_camera_vic" name="黄石80075(高球)竹林渡"
+				naming="0000000000200000000000000490007:0000000000200000000000000480007:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490210"
+				subType="general_camera_vic" name="黄石80114(球)廊桥路口"
+				naming="0000000000200000000000000490210:0000000000200000000000000480218:11.31.0.11:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490203"
+				subType="general_camera_vic" name="黄石80108(球)青湖路口入口"
+				naming="0000000000200000000000000490203:0000000000200000000000000480211:11.31.0.11:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490211"
+				subType="general_camera_vic" name="黄石80113(球)饶家垅路入口"
+				naming="0000000000200000000000000490211:0000000000200000000000000480219:11.31.0.11:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490204"
+				subType="general_camera_vic" name="黄石80111(球)皇姑岑路口"
+				naming="0000000000200000000000000490204:0000000000200000000000000480212:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490480"
+				subType="general_camera_vic" name="黄石80124(球)饶家垅广场"
+				naming="0000000000200000000000000490480:0000000000200000000000000480488:11.31.0.11:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490054"
+				subType="general_camera_vic" name="黄石80078(高球)情人路跳水台旁"
+				naming="0000000000200000000000000490054:0000000000200000000000000480062:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490126"
+				subType="general_camera_vic" name="黄石80069(高球)情人路天圆地方"
+				naming="0000000000200000000000000490126:0000000000200000000000000480134:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490050"
+				subType="general_camera_vic" name="黄石80079(高球)情人路杭州路口"
+				naming="0000000000200000000000000490050:0000000000200000000000000480058:11.31.0.11:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490178"
+				subType="general_camera_vic" name="黄石80094(球)澄月岛大门桥"
+				naming="0000000000200000000000000490178:0000000000200000000000000480186:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490415"
+				subType="general_camera_vic" name="黄石80089(球)澄月岛内湖旁"
+				naming="0000000000200000000000000490415:0000000000200000000000000480423:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490395"
+				subType="general_camera_vic" name="黄石80093(球)澄月岛后院"
+				naming="0000000000200000000000000490395:0000000000200000000000000480403:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490102"
+				subType="general_camera_vic" name="黄石80074(高球)团城山公园大门(内)"
+				naming="0000000000200000000000000490102:0000000000200000000000000480110:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490145"
+				subType="general_camera_vic" name="黄石80071(高球)团城山公园大门(外)"
+				naming="0000000000200000000000000490145:0000000000200000000000000480153:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490408"
+				subType="general_camera_vic" name="黄石80091(球)团城山公园水云谷"
+				naming="0000000000200000000000000490408:0000000000200000000000000480416:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490429"
+				subType="general_camera_vic" name="黄石80197(球)团城山公园生态广场东"
+				naming="0000000000200000000000000490429:0000000000200000000000000480437:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490409"
+				subType="general_camera_vic" name="黄石80196(球)团城山公园生态广场西"
+				naming="0000000000200000000000000490409:0000000000200000000000000480417:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490410"
+				subType="general_camera_vic" name="黄石80090(球)团城山公园梅花谷"
+				naming="0000000000200000000000000490410:0000000000200000000000000480418:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490407"
+				subType="general_camera_vic" name="黄石80092(球)团城山公园后门桥"
+				naming="0000000000200000000000000490407:0000000000200000000000000480415:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490125"
+				subType="general_camera_vic" name="黄石80073(高球)人民广场内西北"
+				naming="0000000000200000000000000490125:0000000000200000000000000480133:11.31.0.11:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490839"
+				subType="general_camera_vic" name="黄石80081(高球)人民广场内西南"
+				naming="0000000000200000000000000490839:0000000000200000000000000480053:11.31.0.11:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490043"
+				subType="general_camera_vic" name="黄石80082(高球)人民广场内东南电视台"
+				naming="0000000000200000000000000490043:0000000000200000000000000480043:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490138"
+				subType="general_camera_vic" name="黄石80068(高球)人民广场内东北工行"
+				naming="0000000000200000000000000490138:0000000000200000000000000480146:11.31.0.11:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490207"
+				subType="general_camera_vic" name="黄石80106(球)江滩公园喷泉"
+				naming="0000000000200000000000000490207:0000000000200000000000000480215:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490236"
+				subType="general_camera_vic" name="黄石80119(球)江滩公园儿童广场"
+				naming="0000000000200000000000000490236:0000000000200000000000000480244:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490469"
+				subType="general_camera_vic" name="黄石80120(球)江滩公园公厕旁"
+				naming="0000000000200000000000000490469:0000000000200000000000000480477:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490205"
+				subType="general_camera_vic" name="黄石80107(球)江滩公园一号门广场"
+				naming="0000000000200000000000000490205:0000000000200000000000000480213:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490192"
+				subType="general_camera_vic" name="黄石80101(球)西北岸游船码头"
+				naming="0000000000200000000000000490192:0000000000200000000000000480200:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490191"
+				subType="general_camera_vic" name="黄石80102(球)西北岸停车场"
+				naming="0000000000200000000000000490191:0000000000200000000000000480199:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490187"
+				subType="general_camera_vic" name="黄石80104(球)西北岸青龙山加压站"
+				naming="0000000000200000000000000490187:0000000000200000000000000480195:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+			<video_input_channel id="0000000000200000000000000490167"
+				subType="general_camera_vic" name="黄石80105(球)西北岸木桥"
+				naming="0000000000200000000000000490167:0000000000200000000000000480175:11.31.0.12:420200"
+				Associateid="" AlarmSchemeid="" scheme="true" isShare="true" hasPan="true"
+				x="0.0" y="0.0" z="0.0" />
+		</organ>
+	</organ>
+</organ>
+		
+	

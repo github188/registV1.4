@@ -1,0 +1,30 @@
+#set($position="resourceList")
+#set($action="$ctxpath/authorization/getRolesByUser")
+#set($selected=true)
+#set($selectedFunction="permissionSelected('$position','type')")
+<div>
+<table width="100%" border="0" cellpadding="1" cellspacing="1" id="${position}T">
+	<tr class="tdTitle">
+		<td>&nbsp;</td>
+		<td style="width:75%;">½ÇÉ«Ãû³Æ</td>
+    </tr>
+
+#foreach($resource in $resources)
+    #parse("/views/r-s.vm")
+	<tr class="$class">
+		<td><input type="checkbox" name="$resource.id" value="$resource.id" #if(!$idsMap.keySet().contains($resource.id))checked="true"#end/></td>
+		<td>$resource.name</td>		
+	</tr>
+#end
+</table>
+</div>	
+<div style="clear:both;">
+	<form action="$action" id="${position}PageForm">
+		<input type="hidden" name="userId" value="$granted.id"/>
+		<input type="hidden" name="first" value="false"/>
+		<input type="hidden" id="roleIdsPage" name="roleIds" value="$!roleIds"/>
+		<input type="hidden" name="type" value="ROLE"/>
+		<input type="hidden" name="name" value="$!name"/>
+		#parse("/views/page.vm")
+	</form>
+</div>

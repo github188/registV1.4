@@ -1,0 +1,12 @@
+{
+	#foreach($row in $organStatusRows)
+		"organ_$row.get("sync")":$row.get("count"),
+	#end
+	#foreach($row in $deviceStatusRows)
+		"device_$row.get("sync")":$row.get("count"),
+	#end
+	#foreach($row in $visStatusRows)
+		"vis_$row.get("sync")":$row.get("count"),
+	#end
+	"cmsId":"$cmsId"
+}

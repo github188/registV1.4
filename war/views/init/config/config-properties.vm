@@ -1,0 +1,90 @@
+<form id="updateRegistConfForm" class="form-horizontal" role="form">
+	<div class="form-body">
+       <div class="form-group">
+          <label  class="col-md-4 col-md-4 control-label">分级上级地址<span class="required">*</span></label>
+          <div class="col-md-8">
+			 <input type="text" name="parent_regist_url" value="$config.getProperty("parent_regist_url")" class="form-control" />
+          </div>
+		</div>
+       <div class="form-group">
+          <label  class="col-md-4 control-label">是否有分级上级<span class="required">*</span></label>
+          <div class="col-md-8">
+			 <input type="text" name="is_city_regist" value="$config.getProperty("is_city_regist")" class="form-control" />
+          </div>
+		</div>
+		<div class="form-group">
+          <label  class="col-md-4 control-label">本目录服务器地址<span class="required">*</span></label>
+          <div class="col-md-8">
+			 <input type="text"  name="local_url" class="form-control" value="$config.getProperty("local_url")"/>
+          </div>
+		</div>
+		<div class="form-group">
+          <label  class="col-md-4 control-label">平台地址<span class="required">*</span></label>
+          <div class="col-md-8">
+			 <input type="text" name="owner_platform_url" value="$config.getProperty("owner_platform_url")" class="form-control" />
+          </div>
+		</div>
+		<div class="form-group">
+          <label  class="col-md-4 control-label">平台编号<span class="required">*</span></label>
+          <div class="col-md-8">
+			 <input type="text" name="owner_platform_cmsId" value="$config.getProperty("owner_platform_cmsId")" class="form-control" />
+          </div>
+		</div>
+		<div class="form-group">
+          <label  class="col-md-4 control-label">国标平台编号<span class="required">*</span></label>
+          <div class="col-md-8">
+			 <input type="text" name="owner_platform_gbId" value="$config.getProperty("owner_platform_gbId")" class="form-control" />
+          </div>
+		</div>
+
+		<div class="form-group">
+          <label  class="col-md-4 control-label">刷新订阅时间<span class="required">*</span></label>
+          <div class="col-md-8">
+			 <input type="text" name="subscribe_period" value="$config.getProperty("subscribe_period")" class="form-control" />
+          </div>
+		</div>
+		<div class="form-group">
+          <label  class="col-md-4 control-label">记录国标收发日志<span class="required">*</span></label>
+          <div class="col-md-8">
+			 <input type="text" name="recordSendLog" value="$config.getProperty("recordSendLog")" class="form-control" />
+          </div>
+		</div>
+		<div class="form-group">
+          <label  class="col-md-4 control-label">日志存放位置<span class="required">*</span></label>
+          <div class="col-md-8">
+			 <input type="text" name="recordSendLogDir" value="$config.getProperty("recordSendLog.dir")" class="form-control" />
+          </div>
+		</div>
+		<div class="form-group">
+          <label  class="col-md-4 control-label">获取设备在线状态的接入IP<span class="required">*</span></label>
+          <div class="col-md-8">
+			 <input type="text" name="access_server_ip" value="$config.getProperty("access_server_ip")" class="form-control" />
+          </div>
+		</div>
+		<div class="form-group">
+          <label  class="col-md-4 control-label">管理员名称<span class="required">*</span></label>
+          <div class="col-md-8">
+			 <input type="text" name="username" value="$config.getProperty("username")" class="form-control" />
+          </div>
+		</div>
+		<div class="form-group">
+          <label  class="col-md-4 control-label">管理员密码<span class="required">*</span></label>
+          <div class="col-md-8">
+			 <input type="password" name="password" value="$config.getProperty("password")" class="form-control" />
+          </div>
+		</div>
+		<div class="form-group">
+          <label  class="col-md-4 control-label">mysqldump路径(命令行可获取:which mysqldump)<span class="required">*</span></label>
+          <div class="col-md-8">
+			 <input type="text" name="mysqldump_path" value="$config.getProperty("mysqldump.path")" class="form-control" />
+          </div>
+		</div>
+	    <div class="form-group">
+          <div class="col-md-12" style="text-align:center;">
+			 <button type="button" class="btn-success" onclick="Config.updateRegistConf()">
+            	保 存 <i class="m-icon-swapright m-icon-white"></i>
+            </button> 
+          </div>
+       </div>
+	</div>
+</form>

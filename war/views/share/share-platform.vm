@@ -1,0 +1,14 @@
+##设置当前板面
+<input type="hidden" id="board" name="board" value="platform"/>
+<form id="shareForm">
+	#parse("/views/share/input.vm")
+	平台类型:<select name="r.platformType" onchange="getPlatformsByType()">
+		<option value="GENERAL">普通平台</option>
+		<option value="GB">国标平台</option>
+    </select>
+	平台名称:<input type="text" name="r.name" value="" style="width:120px;" onkeydown="if(event.keyCode==13) { getPlatformsByType(); return false}"/>
+	<input type="button" value="查询" onclick="getPlatformsByType();"/>
+</form>
+<div id="resourceList">
+	#parse("/views/share/platform-list.vm")
+</div>

@@ -1,0 +1,26 @@
+##设置当前板面
+<input type="hidden" id="board" name="board" value="resource"/>
+<form id="shareForm">
+	#parse("/views/share/input.vm")
+	<input type="hidden" id="selectOrganFuncton" value="getResourcesForShare"/>
+	<input type="hidden" name="r.platformType" value="$r.platformType"/>
+	<table>
+		<tr>
+			<td>所在机构:</td>
+			<td><input type="text" name="organName" id="organName"  value="所有机构" style="width:180px;" onclick="showOptions('organName','organOptions','shareForm');"  onkeyup="return organKeyDownEvent(event,'organName','organOptions','shareForm');" onblur="hiddenOrgans(event,'options','setOrganId(\'shareForm\',\'getOrganIdByName\',\'organId\',\'organName\')');"/></td>
+			<td>资源类型:</td>
+			<td><select name="r.resourceType" id="resourceType" style="width:120px;" onchange="selected('resourceList');getResourcesForShare('false');showRootOrganForCheck()">
+					#parse("/views/resource-option.vm")
+				</select>
+			</td>
+			<td>资源名称:</td>
+			<td><input type="text" name="r.name" value="" style="width:120px;" onkeydown="if(event.keyCode==13) { selected('resourceList');getResourcesForShare(false); return false}"/></td>
+			<td id="rootOrganTD" style="visibility: hidden;"> 根机构<input type="checkbox" name="r.rootOrgan" id="rootOrgan" value="true" onchange="selected('resourceList');getResourcesForShare('false')"/></td>
+			<td><input type="button" value="查询" onclick="selected('resourceList');getResourcesForShare(false);"/></td>
+		</tr>
+	</table>
+</form>
+<div id="resourceList">
+	#parse("/views/share/resource-list.vm")
+</div>
+<div id="organTreeArea" class="organTree" onblur="hiddenOrgans(event,'organTreeArea');"></div>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="GBK"?>
+<!-- 
+<Response>
+	<CmdType>Catalog</CmdType>
+	<DeviceID>640202</DeviceID>
+	<SN>56</SN>
+	<SumNum>2</SumNum>
+	<DeviceList Num="2">
+		<Item>
+			<Address>新街口豁口101</Address>
+			<CivilCode>640202</CivilCode>
+			<DeviceID>64020200011120011124</DeviceID>
+			<IPAddress>61.131.98.219</IPAddress>
+			<Manufacturer>EYE-1004H</Manufacturer>
+			<Model>general_camera_video_server</Model>
+			<Name>视频服务器１</Name>
+			<Owner>1</Owner>
+			<ParentID></ParentID>
+			<Parental>1</Parental>
+			<Port>4233</Port>
+			<RegisterWay>1</RegisterWay>
+			<SafetyWay>0</SafetyWay>
+			<Secrecy>0</Secrecy>
+			<Status>ON</Status>
+		</Item>
+		<Item>
+			<Address>新街口豁口101</Address>
+			<CivilCode>640202</CivilCode>
+			<DeviceID>64020200011310011124</DeviceID>
+			<IPAddress>61.131.98.219</IPAddress>
+			<Manufacturer>EYE-1004H</Manufacturer>
+			<Model>general_camera_video</Model>
+			<Name>普通摄像头1</Name>
+			<Owner>1</Owner>
+			<ParentID>64020200011120011124</ParentID>
+			<Parental>0</Parental>
+			<Port>4233</Port>
+			<RegisterWay>1</RegisterWay>
+			<SafetyWay>0</SafetyWay>
+			<Secrecy>0</Secrecy>
+			<Status>ON</Status>
+		</Item>
+		<Item>
+			<Address>新街口豁口102</Address>
+			<CivilCode>640202</CivilCode>
+			<DeviceID>64020200011120010306</DeviceID>
+			<IPAddress>218.5.169.86</IPAddress>
+			<Manufacturer>EYE-04CCIS</Manufacturer>
+			<Model>general_camera_video_server</Model>
+			<Name>视频服务器2</Name>
+			<Owner>1</Owner>
+			<ParentID></ParentID>
+			<Parental>1</Parental>
+			<Port>4233</Port>
+			<RegisterWay>1</RegisterWay>
+			<SafetyWay>0</SafetyWay>
+			<Secrecy>0</Secrecy>
+			<Status>ON</Status>
+		</Item>
+	</DeviceList>
+</Response>
+ -->
+
+<Response>
+	<CmdType>Catalog</CmdType>
+	<SN>1</SN>
+	<DeviceID>34</DeviceID>
+	<SumNum>4</SumNum>
+	<DeviceList Num="4">
+		<Item>
+			<DeviceID>130101</DeviceID>
+			<Name>市辖区</Name>
+			<CivilCode>34020000000000000000</CivilCode>
+		</Item>
+		<Item>
+			<DeviceID>130102</DeviceID>
+			<Name>长安区</Name>
+			<CivilCode>34020000000000000000</CivilCode>
+		</Item>
+		<Item>
+			<DeviceID>13010000001310000051</DeviceID>
+			<Name>测试摄像机1</Name>
+			<Manufacturer>Fri</Manufacturer>
+			<Model>Fri SIP Agent 1.0</Model>
+			<Owner>石家庄市公安局</Owner>
+			<CivilCode>34020000000000000000</CivilCode>
+			<Address>石家庄市公安局机房</Address>
+			<Parental>0</Parental>
+			<RegisterWay>1</RegisterWay>
+			<Secrecy>0</Secrecy>
+			<Status>ONLINE</Status>
+		</Item>
+		<Item>
+			<DeviceID>13010000001310000052</DeviceID>
+			<Name>测试摄像机2</Name>
+			<Manufacturer>Fri</Manufacturer>
+			<Model>Fri SIP Agent 1.0</Model>
+			<Owner>石家庄市公安局</Owner>
+			<CivilCode>34020000000000000000</CivilCode>
+			<Address>石家庄市公安局机房</Address>
+			<Parental>0</Parental>
+			<RegisterWay>1</RegisterWay>
+			<Secrecy>0</Secrecy>
+			<Status>ONLINE</Status>
+		</Item>
+	</DeviceList>
+</Response>

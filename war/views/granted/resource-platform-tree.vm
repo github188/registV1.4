@@ -1,0 +1,10 @@
+[
+	#if($platform)
+	{"id":"$platform.id","type":"platform","text":"所有下级平台","children":true}
+	#else
+		#foreach($organ in $children)
+			{"id":"$organ.id","type":"$organ.sourceType","text":"$organ.name","children":#if($organ.children.size()>0)true#else false #end}#if($velocityHasNext),#end
+		#end
+	#end
+]
+

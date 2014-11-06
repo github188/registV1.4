@@ -1,0 +1,17 @@
+<div class="processOne">
+	<div style="float:left;margin-top:5px;margin-left:20px;">
+		权限授予流程:
+	</div>
+	<div class="outerProcess" id="t1">选择资源</div>
+	<div class="processOneNext"></div>
+	<div class="outerProcess" id="t2">查看选中的资源</div>
+	<div class="processOneNext"></div>
+	<div class="outerProcess" id="t3">选择用户或角色</div>
+	<div class="processOneNext"></div>
+	<div class="outerProcess" id="t4">查看选中的用户或角色</div>
+	<div class="processOneNext"></div>
+	<div class="outerProcess" id="t5" class="confirm">授权确认</div>
+</div>
+<div id="grantedArea" style="clear:both;">
+	#parse("/views/obtain/share-platform.vm")
+</div>

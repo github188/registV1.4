@@ -1,0 +1,43 @@
+#if($userList)
+<table class="table table-striped  table-bordered table-hover">
+	<thead>
+			<tr>
+    			<th style="width:50px;"class="table-checkbox"><input type="checkbox" class="group-checkable" data-set="#userList .checkboxes" /></th>
+    			<th style="width:50%">用户名称</th>
+    			<th>所属机构</th>
+			</tr>
+    </thead>
+	<tbody id="userList">
+    #foreach($granted in $userList)
+	<tr class="odd gradeX">
+		<td ><input type="checkbox" class="checkboxes" name="$granted.id" value="$granted.id"/></td>
+		<td><div>$granted.logonName</div></td>		
+		<td>$granted.organ.name</td>		
+	</tr>
+	#end
+    </tbody>
+</table>
+#end
+#if($roleList)
+	<table class="table table-striped  table-bordered table-hover">
+		<tr>
+			<th style="width:50px;"class="table-checkbox"><input type="checkbox" class="group-checkable" data-set="#roleList .checkboxes" /></th>
+			<th>角色名称</th>
+		</tr>
+		<tbody id="roleList">
+	    #foreach($granted in $roleList)
+		<tr class="odd gradeX">
+			<td><input type="checkbox" class="checkboxes" value="$granted.id"/></td>
+			<td>$granted.name</td>		
+		</tr>
+		#end
+        </tbody>
+</table>
+#end
+#parse("/views/static/views/page.vm")
+  <script>
+      jQuery(document).ready(function() {       
+         App.init();
+		 TableManaged.init('grantedList');
+      });
+   </script>

@@ -1,0 +1,29 @@
+#if($platforms)
+<div id="grantedLeft" class="organList">
+	<div class="title">机构列表  树型结构</div>
+	<div>
+	<form id="organManageForm">
+        <div id="theirOrgan">所在平台:<select name="cmsId" onchange="queryOrgansForManage();"> 
+					                   #foreach($platform in $platforms)
+										<option value="$platform.cmsId">$platform.name</option>
+									   #end
+			                        </select>
+		</div>
+		
+		<div style="clear:both;">
+		机构名称:<input type="text" name="name" value="$!name" style="width:120px;" 	onkeydown="if(event.keyCode==13) { queryOrgansForManage(); return false}"/>
+			  <input type="button" value="查询" onclick="queryOrgansForManage();"/>
+		</div>
+	</form>
+	</div>
+	<div id="organList">
+		#parse("/views/organ/organ-list.vm")
+	</div>	
+</div>
+<div id="organRight" class="organDetail">
+	
+</div>
+<div id="ownerOrganTreeArea" class="organTree" onblur="hiddenOrgans(event,'ownerOrganTreeArea');"></div>
+#else
+	#parse("/views/organ/organ-list.vm")
+#end

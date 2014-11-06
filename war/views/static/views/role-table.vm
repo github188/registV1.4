@@ -1,0 +1,14 @@
+<table>
+			<tr>
+				<td>角色名称:</td>
+				<td><input type="text" name="name" value="" /></td>
+			</tr>
+			<tr>
+				<td>所属部门:</td>
+				<td><input type="text" id="roleOrganName" name="organName" value="" onclick="getUserOrgan('roleOrganId','roleOrganName')"/></td>
+			</tr>
+			<tr>
+				<td>备注</td>
+				<td><input type="text" name="note" value="" /></td>
+			</tr>
+		</table>

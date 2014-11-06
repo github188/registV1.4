@@ -1,0 +1,16 @@
+[
+	#if($platform)
+	{"id":"$platform.id","type":"platform","text":"所有机构","a_attr":{"organId":""},"children":
+	[
+		#foreach($organ in $children)
+			{"id":"$organ.id","type":"organ","text":"$organ.name","a_attr":{"organId":"$organ.organId"},"children":#if($organ.children.size()>0)true#else false #end}#if($velocityHasNext),#end
+		#end
+	]
+	}
+	#else
+		#foreach($organ in $children)
+			{"id":"$organ.id","type":"organ","text":"$organ.name","a_attr":{"organId":"$organ.organId"},"children":#if($organ.children.size()>0)true#else false #end}#if($velocityHasNext),#end
+		#end
+	#end
+]
+

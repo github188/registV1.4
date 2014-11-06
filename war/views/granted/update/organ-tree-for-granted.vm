@@ -1,0 +1,21 @@
+[
+	#if($parent)
+		{ "id" : "$parent.id", "type":"$parent.sourceType", "a_attr":{"path":"$parent.path","platformId":"$parent.platform.id","title": "<table><tr><td>平台编号：</td><td>$parent.organ.cmsId</td></tr></table>"}, "state": {"selected" :false},"text" : "${parent.name}", "children" : true}
+	#end
+	#foreach($organ in $organs)
+		#if($organDevicesInfo.get("$organ.id"))
+			#set($deviceCount= $organDevicesInfo.get("$organ.id"))
+		#else
+			#set($deviceCount=0)
+		#end
+		#if($childrenOrganInfo.get("$organ.id"))
+			#set($organCount= $childrenOrganInfo.get("$organ.id"))
+		#else
+			#set($organCount=0)
+		#end
+		{ "id" : "$organ.id", "type":"$organ.sourceType", "a_attr":{"path":"$organ.path","platformId":"$organ.platform.id","title": "<table><tr><td  style='text-align:right'>平台编号：</td><td style='text-align:left'>$organ.organ.cmsId</td></tr><tr><td style='text-align:right'>机构国标ID：</td><td style='text-align:left'>$!organ.organ.stdId$!organ.organ.gbPlatformCmsId</td></tr></table>"}, "state": {"selected" :false},"text" : "${organ.name}($organCount/$deviceCount)", "children" : #if($organCount>0 || $deviceCount>0) true#else false#end}#if($velocityHasNext || ($devices && $devices.size()>0)),#end
+	#end
+	#foreach($device in $devices)
+		{ "id" : "device__$device.id", "type":"device", "a_attr":{"path":"$device.path","platformId":"$device.platform.id","title": "<table><tr><td  style='text-align:right'>平台编号：</td><td style='text-align:left'>$device.permission</td></tr><tr><td style='text-align:right'>设备国标ID：</td><td style='text-align:left'>$device.stdId</td></tr><tr><td style='text-align:right'>设备类型：</td><td style='text-align:left'>$device.type</td></tr></table>"}, "state": {"selected" :false},"text" : "${device.name}", "children" : false}#if($velocityHasNext),#end
+	#end
+]

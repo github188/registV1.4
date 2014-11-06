@@ -1,0 +1,4 @@
+总数:{{total}},OK={{OK}},error={{error}}
+{% if error>0%}
+导入失败具体详情请下载查看:<a href='/downloadImportResult'><i class="icon-download-alt"></i></a>
+{%endif%}

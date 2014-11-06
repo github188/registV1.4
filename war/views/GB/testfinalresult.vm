@@ -1,0 +1,16 @@
+<table width="100%" border="0" cellpadding="1" cellspacing="1" id="returnResult">
+<tr class="tdTitle">
+	        <td style="width:20%">操作时间</td>
+			<td style="width:20%">操作ID</td>
+			<td>操作类型</td>
+			<td>操作结果</td>
+</tr>
+#foreach($testItem in $retList)
+    <tr>
+		<td >$testItem.retTime</td>
+    	<td >$testItem.deviceId</td>
+    	<td >$testItem.method</td>
+    	<td >$testItem.result</td>
+    </tr>
+#end
+</table>

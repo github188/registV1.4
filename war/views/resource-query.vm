@@ -1,0 +1,15 @@
+#parse("/views/input.vm")
+<input type="hidden" name="grantedType" value="$!grantedType"/>
+<input type="hidden" id="selectOrganFuncton" value="queryResource"/>
+<input type="hidden" id="selectPlatformFunction" value="queryResource"/>
+<div class="myPlatform">所在平台:<input type="text" name="cmsName" id="cmsName" style="width:180px;" value="所有下级平台" onclick="showPlatforms('cmsId','cmsName','platformTreeArea')" onblur="hiddenOrgans(event,'platformTreeArea');"/></div>
+<div class="resourceType">
+	资源类型:<select name="resourceType" id="resourceType" style="width:185px;" onchange="selected('resourceList');queryResource(false)">
+	#parse("/views/resource-option.vm")
+</select>
+</div>
+<div id="theirOrgan">所在机构:<input type="text" name="organName" id="organName"  readonly="true" value="所有机构" style="width:180px;" onclick="getOrganTree('organName','organId','organTreeArea');" onblur="hiddenOrgans(event,'organTreeArea','setOrganId(\'grantedForm\',\'getOrganIdByName\',\'organId\',\'organName\')');"/></div>
+<div class="resourceType">
+	资源名称:<input type="text" name="name" value="" style="width:180px;"  onkeydown="if(event.keyCode==13) { selected('resourceList');queryResource(false); return false}"/>
+	<input type="button" value="查询" onclick="selected('resourceList');queryResource(false);"/>
+</div>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<platforms>
+	#foreach($platform in $platforms)
+		<platform id="$platform.id" name="$platform.name" parent="$!platform.parent.id"/>
+	#end
+</platforms>

@@ -1,0 +1,17 @@
+{%if permissionType=='usePermission'%} 
+[
+  {% for organ in organs %}
+  	{ "id" : "{{organ.id}}","text" : "{{organ.name}}","parentId":"{{organId}}","state": {"opened":false,"disabled" :{%if not organ.parent%}true{%else%}false{%endif%},"selected":{%if organMap and organ.id in organMap.keys() and '1' in organMap[organ.id]%}true{%else%}false{%endif%}},"type" : {% if organ.owner %}"private_organ"{%else%}"public_organ" {%endif%} 
+		,"children" :{% if organ.children|length>0%}true{%else%}false{%endif%}
+	}{% if not loop.last%},{% endif%}
+  {% endfor %}
+]
+{%else%}
+[
+  {% for organ in organs %}
+      	{ "id" : "{{organ.id}}","text" : "{{organ.name}}","parentId":"{{organId}}","state":{"opened":false,"disabled":{%if not organ.parent%}true{%else%}false{%endif%},"selected":{%if organMap and organ.id in organMap.keys() and organMap[organ.id][0:1]=='1'%}true{%else%}false{%endif%}},"type" : {% if organ.owner %}"private_organ"{%else%}"public_organ" {%endif%} 
+		,"children" : {% if organ.children|length>0%}true{%else%}false{%endif%}
+	}{% if not loop.last%},{% endif%}
+  {% endfor %}
+]
+{%endif%}

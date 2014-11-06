@@ -1,0 +1,23 @@
+
+
+	<div style="float:left">
+		<input type="button" onclick="selectedAll('$position');" value="全选"/>
+		<input type="button" onclick="selectedNochecked('$position');" value="反选"/>
+		<input type="button" onclick="secondGrants('$position','resourceType')" value="下一步"/>
+	</div>
+	<div id="alertMsg" class="alertMsg" style="clear:right;height:20px;">
+	</div>
+	<div style="clear:both;">
+		<form action="$action" id="${position}PageForm">
+			<input type="hidden" id="vicIdsPage" name="vicIds" value="$!vicIds"/>
+			<input type="hidden" id="ipvicIdsPage" name="ipvicIds"  value="$!ipvicIds"/>
+			<input type="hidden" id="aicIdsPage" name="aicIds" value="$!aicIds"/>
+			<input type="hidden" id="organIdsPage" name="organIds" value="$!organIds"/>
+			<input type="hidden" name="cmsId" value="$cmsId"/>
+			<input type="hidden" name="organId" value="$!organId"/>
+			<input type="hidden" name="name" value="$!name"/>
+			<input type="hidden" name="resourceType" value="$resourceType"/>
+			<input type="hidden" id="currentResourceType" name="currentResourceType" value="$resourceType"/>
+			#parse("/views/page.vm")
+		</form>    	
+	</div>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?> 
+<Response> 
+    <CmdType>DeviceInfo</CmdType> 
+    <SN>$sn</SN> 
+    <DeviceID>$deviceId</DeviceID> 
+    <Result>OK</Result> 
+    <DeviceType>$server.type</DeviceType> 
+    <Manufacturer>$server.manufacturer</Manufacturer> 
+    <Model>$server.model</Model> 
+    <Firmware>V2.1, build 091111</Firmware>
+    <MaxCamera>8</MaxCamera>
+    <MaxAlarm>16</MaxAlarm> 
+</Response>

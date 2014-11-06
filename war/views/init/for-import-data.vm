@@ -1,0 +1,14 @@
+<div class="row">
+<form id="importMyPersonForm" enctype="multipart/form-data">
+    <div class="form-body">
+		<div class="form-group">
+           <div  class="col-md-3">
+				<input type="file" name="personFile"/>
+           </div>
+		   <div class="col-md-5">
+                 <span class="btn btn-success" href="#" onclick="importMyPerson();"><i class='glyphicon glyphicon-flash'></i>导入用户</span>
+           </div>
+        </div>
+	</div>
+</form>
+</div>

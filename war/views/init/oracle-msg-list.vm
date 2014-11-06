@@ -1,0 +1,31 @@
+<div  style="overflow: auto">
+ <div class="col-md-12">
+	<div class="input-group">
+			<a class="btn btn-success " id="addOracleModalEntry" data-target="#addOracleModal" data-toggle="modal" > <i
+				class="fa fa-plus"></i> 添加平台信息
+			</a>&nbsp;
+			<a class="btn btn-success " onclick="InitConfig.executePullAll('$config.getProperty("cmsIds")')"> <i
+				class="fa fa-refresh"></i> 获取所有平台数据 
+			</a>&nbsp;
+    </div>
+		<div class="panel-group accordion" id="oracleAccordion" style="margin-top:5px;">
+			#if($cmsId)
+				#parse("/views/init/oracle-msg.vm")
+			#else
+    			#foreach($cmsId in $config.getProperty("cmsIds"))
+    				#parse("/views/init/oracle-msg.vm")
+    			#end
+			#end
+			
+         </div>
+</div>
+</div>
+#parse("/views/init/add-oracle.vm")
+
+#parse("/views/init/sysc-status.vm")
+	
+<script>
+      jQuery(document).ready(function() { 
+	   	Metronic.init();
+      });
+ </script>	

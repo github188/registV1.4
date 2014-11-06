@@ -1,0 +1,21 @@
+<table width="100%" border="0" cellpadding="1" cellspacing="1" id="${position}T">
+	<tr class="tdTitle">
+		<td style="width:60px">&nbsp;</td>
+		<td>平台名称</td>
+    </tr>
+    #foreach($platform in $platforms)
+    #parse("/views/r-s.vm")
+	<tr class="$class">
+			<td style="text-align:center;"><input type="checkbox" id="${platform.id}" name="$platform.id" value="$platform.id" #if($platformIdsMap.get($platform.id)) checked="true" #end/></td>
+			<td>$platform.name</td>
+	</tr>
+	#end
+	<tr class="$class">
+		<td style="text-align:center;"><a href="#" onclick="selectedAll('resourceList');" >全选</a>
+			<a href="#" onclick="selectedNochecked('resourceList');" >反选</a>
+		</td>
+		<td>
+			&nbsp;
+		</td>
+	</tr>
+</table>

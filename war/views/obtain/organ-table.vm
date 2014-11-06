@@ -1,0 +1,20 @@
+<table width="100%" border="0" cellpadding="1" cellspacing="1" id="${position}T">
+		<tr class="tdTitle">
+			<td style="width:60px;text-align:center;">&nbsp;</td>
+			<td>机构名称</td>
+			<td>父机构</td>
+	    </tr>
+	    #foreach($organ in $resources)
+	    #parse("/views/r-s.vm")
+		<tr class="$class">
+			<td style="width:60px;text-align:center;"><input type="checkbox" name="$organ.id" value="$organ.id"  #if($idsMap.get($organ.id)) checked="true" #end/></td>
+			<td><div onmouseover='showTips(event,this,getContentForShowTips("$organ.organPath","$organ.id","$organ.platform.id","$organ.platform.name"))'  onmouseout='hideTips(event,this);'>$organ.name</div></td>		
+			<td>#if($organ.parentOrgan) $organ.parentOrgan #elseif($organ.parent.name)  $organ.parent.name #end</td>		
+		</tr>
+		#end
+		<td style="text-align:center;"><a href="#" onclick="selectedAll('$position');" >全选</a>
+					<a href="#" onclick="selectedNochecked('$position');" >反选</a>
+		</td>
+		<td>&nbsp;</td>		
+		<td>&nbsp;</td>	
+</table>

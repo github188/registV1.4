@@ -1,0 +1,6 @@
+<div style="clear:both;">
+	<form action="$action" id="${position}PageForm">
+		#parse("/views/obtain/input-page.vm")
+		#parse("/views/page.vm")
+	</form>    	
+</div>

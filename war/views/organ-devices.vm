@@ -1,0 +1,5 @@
+#set($position="resourceList")
+#set($action="$ctxpath/device/queryDevices")
+#set($selected=true)
+#set($selectedFunction="selected('$position')")
+#parse("/views/granted-device.vm")

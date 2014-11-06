@@ -1,0 +1,59 @@
+<div class="row">
+	<div class="col-md-12">
+		<div class="input-group" style="margin-top:20px;margin-left:15px;margin-bottom:2px;">
+            <a class="btn btn-success" href="javascript:;" onclick="confirmGbShare()"><i class="icon-cogs"></i>共享设置确定</a>
+        </div>
+		<div class="col-md-5">
+					<div class="portlet box blue" style="margin-bottom:0px">
+            			 <div class="portlet-title">
+                              <div class="caption"><i class="fa fa-sitemap"></i>上级国标平台</div>
+							  <div class="tools">
+                                <a href="javascript:;" class="collapse"></a>
+                             </div>
+                          </div>
+						  <div class="portlet-body">
+								 <div class="panel-group accordion" id="gbPlatforms">
+									#foreach($parent in $parents)
+                                    <div class="panel panel-default">
+                                           <div class="panel-heading">
+                                              <h4 class="panel-title">
+												<a name="$parent.name" class="accordion-toggle" data-toggle="collapse" data-parent="#gbPlatforms" onclick="showResourcesForPlatform('${parent.id}');" href="#collapse_$parent.id" id="${parent.id}_gbPlatform">
+                                                 $parent.name
+                                                </a>
+                                              </h4>
+                                           </div>
+                                       <div id="collapse_$parent.id" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                          </div>
+                                       </div>
+									</div>
+									#end
+                          </div>
+                    </div>
+				</div>
+            </div>
+        	<div class="col-md-7">
+        			<div class="portlet box blue">
+            			 <div class="portlet-title">
+                              <div class="caption"><i class="fa fa-sitemap"></i>平台信息</div>
+        					  <div class="tools">
+                                <a href="javascript:;" class="collapse"></a>
+                             </div>
+                          </div>
+        				  <div class="portlet-body">
+								<input type="text" value=""
+    							style="box-shadow: inset 0 0 4px #eee; width: 120px; margin: 0; padding: 6px 12px; border-radius: 4px; border: 1px solid silver; font-size: 1.1em;"
+    							id="organ_q" placeholder="搜索" />
+        						<div id="gbOrganTree" style="margin-top: 1em; min-height: 400px;"></div>
+                          </div>
+                    </div>
+            </div>
+	</div>
+</div>
+	
+<script>
+	jQuery(document).ready(function() {
+		searchResource();
+		setGbOrganTreeForShare();
+	});
+</script>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="GBK"?>
+#if($error)
+	<message>$error</message>
+#else
+	#if($platform)
+	<organ id="0000000000000000000000000$platform.cmsId" name="$platform.name"  isShare="true" isPlatform="true">
+		#foreach($child in $organGroup.get($platformOrgan.id))
+			#generalTreeNode($child)	
+		#end
+	</organ>
+	#end
+	#if($topOrgans && $topOrgans.size()>0)
+		<User userNmaing="$naming">
+    		#foreach($topOrgan in $topOrgans)
+            		#generalTreeNode($topOrgan)	
+    		#end
+		</User>
+	#end
+#end
+## Velocity Template.
+#macro(generalTreeNode $parent)
+	#if($parent.get("source_type")=="platform")
+		<organ id="0000000000000000000000000$parent.get("organ_id")" name="$parent.get("name")"  isShare="true" isPlatform="true">
+	#else
+		<organ id="$parent.get("organ_id")" name="$!{parent.get("name")}"  isShare="true" isPlatform="false">
+	#end
+		#foreach($device in $deviceGroup.get($parent.get("source_id")))
+            #set($naming=$device.get("naming"))
+            #set($deviceId = $device.get("device_id"))
+            #set($name = $device.get("name"))
+            #set($permission = $device.get("permission"))
+            #set($type = $device.get("type"))
+            #set($longitude = $device.get("longitude"))
+            #set($latitude = $device.get("latitude"))
+            #set($gpsZ = $device.get("gps_z"))
+            #set($longitude = $device.get("longitude"))
+            #set($supportScheme = $device.get("support_scheme"))
+            #if($type == "VIC")
+                #set($scheme=$schemeSetting.get("${naming}_VideoInputChannel"))
+                <video_input_channel id="$deviceId" subType="general_camera_vic" name="$!{name}"
+                naming="$naming" #if($scheme)Associateid="$scheme.alarmDeviceId" AlarmSchemeid="$scheme.schemeId" #else Associateid="" AlarmSchemeid="" #end scheme="$supportScheme" isShare="true" #if($permission.substring(2,3)==1) hasPan="true"#else hasPan="false"#end x="$longitude" y="$latitude" z="$gpsZ"/>
+                #set($scheme=false)
+            #elseif($type == "IPVIC")
+                #set($scheme=$schemeSetting.get("${naming}_VideoInputChannel"))
+                <video_input_channel id="$deviceId" subType="ip_camera_vic" name="$!name"
+                naming="$naming" #if($scheme)Associateid="$scheme.alarmDeviceId" AlarmSchemeid="$scheme.schemeId" #else Associateid="" AlarmSchemeid="" #end scheme="$supportScheme" isShare="true" #if($permission.substring(2,3)==1) hasPan="true"#else hasPan="false"#end x="$longitude" y="$latitude" z="$gpsZ"/>
+            #set($scheme=false)
+            #elseif($type == "AIC")
+                #set($scheme=$schemeSetting.get("${naming}_AlarmInputChannel"))
+                <alarm_input_channel id="$deviceId" name="$!device.name" installLocation="" note=""
+                                naming="$naming" #if($scheme)Associateid="$scheme.alarmDeviceId" AlarmSchemeid="$scheme.schemeId" #else Associateid="" AlarmSchemeid="" #end scheme="$supportScheme" typeId="" typeName=""  isShare="true"/>
+                #set($scheme=false)
+            #end
+        #end
+		#foreach( $child in $organGroup.get($parent.get("id")))
+			#generalTreeNode($child)
+		#end
+	</organ>
+#end

@@ -1,0 +1,27 @@
+#set($position="userList")
+#set($action="$ctxpath/user/queryUser")
+#set($showPageSize="false")
+<table width="100%" border="0" cellpadding="1" cellspacing="1" id="${position}T">
+	<tr class="tdTitle">
+		<td>用户名称</td>
+		<td style="width:60px;">角色列表</td>
+		<td style="width:80px;">操作</td>
+    </tr>
+    #foreach($user in $userList)
+    #parse("/views/r-s.vm")
+	<tr class="$class">
+		<td ondblclick="queryPermissionByGrantedVisGet('$user.id','USER')"><div onmouseover='showTips(event,this,getContent("$user.logonName","$user.organ.name","$!user.name","$user.sex"))'  onmouseout='hideTips(event,this);'>$user.logonName</div></td>		
+		<td><a href="#" onclick="queryRolesByUser('$user.id')" class="roleList" >角色列表</a></td>		
+		<td><a href="#" onclick="staticDevicesByUser('$user.naming')" class="roleList" >权限静态化</a></td>		
+	</tr>
+	#end
+</table>
+<div style="clear:both;">
+<form action="$action" id="${position}PageForm">
+	<input type="hidden" id="ownerOrganIdPage" name="ownerOrganId" value="$!ownerOrganId"/>
+	<input type="hidden" id="namePage" name="name" value="$!name"/>
+	#parse("/views/page.vm")
+</form>    	
+</div>
+<div id="alertMsg" class="alertMsg" style="clear:right;height:20px;">
+</div>

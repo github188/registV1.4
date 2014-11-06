@@ -1,0 +1,63 @@
+#if($organList)
+<table class="table table-striped  table-bordered table-hover">
+	<thead>
+			<tr>
+    			<th style="width:50px;"class="table-checkbox"><input type="checkbox" class="group-checkable" data-set="#organList .checkboxes" /></th>
+    			#if($sourceType =="organ" || $sourceType=="root")
+				<th style="width:32%">机构名称</th>
+    			<th style="width:32%">父机构</th>
+    			<th style="width:32%">所属平台</th>
+				#else
+				<th style="width:45%">平台名称</th>
+    			<th style="width:45%">父平台名称</th>
+				#end
+			</tr>
+    </thead>
+	<tbody id="organList">
+    #foreach($organ in $organList)
+	<tr class="odd gradeX">
+		<td ><input type="checkbox" class="checkboxes" value="$organ.id"/></td>
+		<td>$organ.name</td>
+		#if($sourceType=="root" ||($sourceType =="organ" and $organ.parent.sourceType=="platform"))
+			<td></td>
+		#else
+			<td>$!organ.parent.name</td>	
+		#end
+		#if($sourceType =="organ"  || $sourceType =="root" )
+		<td>$!organ.platform.name</td>
+		#end
+	</tr>
+	#end
+    </tbody>
+</table>
+#end
+#if($deviceList)
+	<table class="table table-striped  table-bordered table-hover">
+		<thead>
+    		<tr>
+    			<th style="width:50px;"class="table-checkbox"><input type="checkbox" class="group-checkable" data-set="#deviceList .checkboxes" /></th>
+    			<th style="width:32%">设备名称</th>
+    			<th style="width:32%">所属机构</th>
+    			<th style="width:32%">所属平台</th>
+    		</tr>
+        </thead>
+		<tbody id="deviceList">
+    	    #foreach($device in $deviceList)
+    		<tr class="$class">
+    			<td ><input type="checkbox" class="checkboxes" value="$device.id"/></td>
+        		<td>$device.name</td>		
+        		<td>$!device.organ.name</td>		
+        		<td>$!device.platform.name</td>
+            </tr>
+			#end
+        </tbody>
+</table>
+#end
+#parse("/views/static/views/page.vm")
+  <script>
+      jQuery(document).ready(function() {       
+         App.init();
+		 TableManaged.init('resourceList');
+		 ComponentsDropdowns.init();
+      });
+   </script>

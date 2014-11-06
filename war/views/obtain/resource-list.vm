@@ -1,0 +1,15 @@
+#set($position="resourceList")
+#set($action="$ctxpath/obtain/queryObtainResource")
+#set($selected=true)
+#set($selectedFunction="selected('$position')")
+#if($r.resourceType=="ORGAN")
+#parse("/views/obtain/organ-table.vm")
+#else
+#parse("/views/obtain/outer-device-table.vm")
+#end
+<div style="float:left">
+	<input type="button" onclick="obtainQuerySelectedResource('$position',true);" value="ÏÂÒ»²½"/>
+</div>
+<div id="alertMsg" class="alertMsg" style="clear:right;height:20px;">
+</div>
+#parse("/views/obtain/granted-form.vm")

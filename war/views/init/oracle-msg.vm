@@ -1,0 +1,72 @@
+<div class="panel panel-default" id="panel_$cmsId">
+           <div class="panel-heading">
+              <h4 class="panel-title" style="height:40px;">
+				 <a name="{{organ.name}}" class="accordion-toggle" data-toggle="collapse" data-parent="#oracleAccordion" href="#collapse_$cmsId" id="aId_$cmsId">
+					$config.getProperty("p${cmsId}_name")($cmsId)
+                 </a>
+              </h4>
+           </div>
+       <div id="collapse_$cmsId" class="panel-collapse collapse">
+          <div class="panel-body">
+             <div id="oracle_$cmsId">
+				<form id="oracleForm_$cmsId" class="form-horizontal" role="form">
+                    	<div class="form-body">
+                           <div class="form-group">
+                              <label  class="col-md-3 control-label">平台名称<span class="required">*</span></label>
+                              <div class="col-md-9">
+                    			 <input type="text" name="p${cmsId}_name" value="$config.getProperty("p${cmsId}_name")" class="form-control" />
+                              </div>
+                    		</div>
+                           <div class="form-group">
+                              <label  class="col-md-3 control-label">同步模块share url<span class="required">*</span></label>
+                              <div class="col-md-9">
+                    			 <input type="text" name="p${cmsId}_share.war.url" value="$config.getProperty("p${cmsId}_share.war.url")" class="form-control" />
+                              </div>
+                    		</div>
+                           <div class="form-group">
+                              <label  class="col-md-3 control-label">数据库用户名<span class="required">*</span></label>
+                              <div class="col-md-9">
+                    			 <input type="text" name="p${cmsId}_jdbc.user" value="$config.getProperty("p${cmsId}_jdbc.user")" class="form-control" />
+                              </div>
+                    		</div>
+                           <div class="form-group">
+                              <label  class="col-md-3 control-label">数据库密码<span class="required">*</span></label>
+                              <div class="col-md-9">
+                    			 <input type="password" name="p${cmsId}_jdbc.password" value="$config.getProperty("p${cmsId}_jdbc.password")" class="form-control" />
+                              </div>
+                    		</div>
+                    		<div class="form-group">
+                              <label  class="col-md-3 control-label">数据库IP:PORT<span class="required">*</span></label>
+                              <div class="col-md-9">
+                    			 <input type="text" name="p${cmsId}_jdbc.IPPORT" value="$config.getProperty("p${cmsId}_jdbc.IPPORT")" class="form-control" />
+                              </div>
+                    		</div>
+							<div class="form-group">
+                              <label  class="col-md-3 control-label">sid<span class="required">*</span></label>
+                              <div class="col-md-9">
+                    			 <input type="text"  name="p${cmsId}_jdbc.sid" class="form-control" value="$config.getProperty("p${cmsId}_jdbc.sid")"/>
+                              </div>
+                    		</div>
+                    	    <div class="form-group">
+                              <div class="col-md-12" style="text-align:center;">
+                    			 <a href="javascript:;" class="btn btn-success" onclick="InitConfig.updateOracleConf('$cmsId')">
+                                	<i class="fa fa-save"></i>&nbsp;保 存 
+                                </a> 
+								<a href="javascript:;" class="btn btn-info" onclick="InitConfig.executePull('$cmsId')">
+                                	<i class="fa fa-refresh"></i>&nbsp;获 取 
+                                </a> 
+								<a href="javascript:;" class="btn btn-info" onclick="InitConfig.showSyncStatus('$cmsId')">
+                                	<i class="fa fa-flash"></i>&nbsp;平台同步状态 
+                                </a> 
+								<a href="javascript:;" class="btn btn-danger" onclick="InitConfig.deleteOralceConf('$cmsId')">
+                                	<i class="fa fa-trash-o fa-lg"></i>&nbsp;删 除 
+                                </a> 
+                              </div>
+                           </div>
+                    	</div>
+                    </form>
+					<div id='pullResult_$cmsId' style="display: none;color:red"></div>
+			 </div>
+          </div>
+       </div>
+</div>

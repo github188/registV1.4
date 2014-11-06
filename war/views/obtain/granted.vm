@@ -1,0 +1,33 @@
+##设置当前板面
+<input type="hidden" id="board" name="board" value="granted"/>
+<form id="grantedForm">
+	#parse("/views/obtain/input.vm")
+	<input type="hidden" id="selectOrganFuncton" value="obtainQueryGranted"/>
+	<input type="hidden" id="resourceCmsId" name="r.resourceCmsId" value="$!r.resourceCmsId"/>
+	<input type="hidden" id="resourceType" name="r.resourceType" value="$!r.resourceType"/>
+	<table>
+		<tr>
+			<td class="organ">所在机构:</td>
+			<td class="organ"><input type="text" name="ownerOrganName" id="ownerOrganName" #if($r.ownerOrgan) value="$r.ownerOrgan.name" #else value="所有机构" #end style="width:180px;" onclick="showOptions('ownerOrganName','ownerOrganOptions','grantedForm');"  onkeyup="return organKeyDownEvent(event,'ownerOrganName','ownerOrganOptions','grantedForm');" onblur="hiddenOrgans(event,'options','setOrganId(\'grantedForm\',\'getOwnerOrganIdByName\',\'ownerOrganId\',\'ownerOrganName\')');"/></td>
+			<td>授权对象:</td>
+			<td><select name="r.grantedType" id="grantedType" style="width:120px;" onchange="selected('resourceList');hiddenTheirOrgan('grantedType');queryGrantedList('/obtain/getGrantedList');">
+					<option value="USER" #if($r.grantedType=="USER")selected="true"#end>用户</option>
+					<option value="ROLE" #if($r.grantedType=="ROLE")selected="true"#end>角色</option>
+				</select>
+			</td>
+			<td>对象名称:</td>
+			<td><input type="text" name="r.name" value="$!r.name" style="width:120px;" onkeydown="if(event.keyCode==13) { queryGrantedList('/obtain/getGrantedList'); return false}"/></td>
+			<td><input type="button" value="查询" onclick="queryGrantedList('/obtain/getGrantedList');"/></td>
+		</tr>
+	</table>
+</form>
+<div id="resourceList">
+	#parse("/views/obtain/granted-list.vm")
+</div>
+<script>
+	#if($r.grantedType=="USER")
+		$("#theirOrgan").show();
+	#else
+		$("#theirOrgan").hide();
+	#end
+</script>

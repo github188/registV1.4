@@ -1,0 +1,6 @@
+[
+  {% for organ in organs %}
+  	{ "id" : "{{organ.id}}",  "state": {"selected" :false,"disabled":{%if organ.permission=='11' and organ.id!= organId %}false{%else%}true{%endif%}},"a_attr":{"type":"{{organ.myType}}","permission":"{{organ.permission}}","style":{%if organ.permission=='11'%}"color:green"{%else%}"color:orangered"{%endif%}},"text" : "{{organ.name}}", "children" : {% if organ.hasChild or (parentChildenMap and parentChildenMap[organ.id])%}true{%else%}false{%endif%},"type" : {% if organ.owner %}"private_organ"{%else%}"public_organ" {%endif%}} {% if not loop.last%},{% endif%}
+  {% endfor %}
+]
+

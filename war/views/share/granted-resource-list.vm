@@ -1,0 +1,8 @@
+#set($position="resourceList")
+#set($action="$ctxpath/share/getResourceByOuterPlatform")
+#set($selected=true)
+#set($selectedFunction="permissionSelected('$position','type')")
+#parse("/views/granted-resource-table.vm")
+<div id="alertMsg" class="alertMsg" style="clear:right;height:20px;">
+</div>
+#parse("/views/share/share-form.vm")

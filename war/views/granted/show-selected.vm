@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-md-5">
+        <a class="btn btn-success" href="javascript:;" onclick="authorization()"><i class="icon-ok"></i>确认</a>
+	</div>
+</div>
+<div class="row">
+        <div class="col-md-5">
+			<form id="selectedGrantedForm">
+				<h3 class="form-section">选中的用户与角色</h3>
+                <div class="input-group">
+                		<select name="grantedType" class="form-control input-small" id="grantedType" style="width:120px;" onchange="getSelectedGrantedList();">
+                				<option value="USER">用户</option>
+                				<option value="ROLE">角色</option>
+                			</select>
+                		&nbsp;<span>名称:</span>
+                		<a><input type="text" name="name" value="$!name" style="box-shadow: inset 0 0 4px #eee; width: 120px; margin: 0; padding: 6px 12px; border-radius: 4px; border: 1px solid silver; font-size: 1.1em;" placeholder="查询"  onkeydown="if(event.keyCode==13) { getSelectedGrantedList();return false}"/></a>
+                		&nbsp;<a class="btn btn-success" href="javascript:;" onclick="getSelectedGrantedList()"><i class="icon-search"></i>查询</a>
+                </div>
+            </form>
+            <div class="row" style="margin-top:2px;">
+                <div class="col-md-12">
+                	<div id="selectedGrantedList">
+                    </div>
+                </div>
+            </div>
+    	</div>
+        <div class="col-md-6">
+			<form id="selectedResourceForm">
+				<h3 class="form-section">选中的机构与设备</h3>
+                	<div class="input-group">
+                			<span><select class="form-control input-small" name="resourceType" style="width:185px;" onchange="getSelectedResourceList();">
+                					<option value="platform">平台</option>
+                					<option value="root">根机构</option>
+                					<option value="organ" selected="true">所有机构</option>
+                					<option value="device">所有设备</option>
+                					<option value="VIC">普通摄像头</option>
+                					<option value="IPVIC">ip摄像头</option>
+                					<option value="AIC">报警输入</option>
+                				</select>
+                            </span>
+                		    &nbsp;<span>资源名称:</span>
+                			&nbsp;<input type="text" name="name" value="$!name" style="box-shadow: inset 0 0 4px #eee; width: 120px; margin: 0; padding: 6px 12px; border-radius: 4px; border: 1px solid silver; font-size: 1.1em;" placeholder="查询"  onkeydown="if(event.keyCode==13) { getSelectedResourceList();return false}"/>
+                			&nbsp;<a class="btn btn-success" href="javascript:;" onclick="getSelectedResourceList()"><i class="icon-search"></i>查询</a>
+							
+					</div>
+					<div class="row" style="margin-top:2px;">
+                        <div class="col-md-12">
+                				<div id="selectedResourceList">
+                				#parse("/views/granted/selected-resource-list.vm")
+        						</div>
+                        </div>
+					</div>
+            </form>
+    	</div>
+</div>
+<script type='text/javascript'>
+ 	jQuery(document).ready(function() {       
+         getSelectedUserList();
+      });
+    
+</script>	

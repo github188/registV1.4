@@ -1,0 +1,17 @@
+#set($position="resourceList")
+#set($action="$ctxpath/share/querySelectedResource")
+#set($selected=true)
+#set($selectedFunction="selected('$position')")
+#set($selectedResource="selectedResource")
+#if($r.resourceType=="ORGAN")
+#parse("/views/organ-table.vm")	
+#else
+#parse("/views/device-table.vm")
+#end
+<div style="float:left">
+	<input type="button" id="AT1LastStep" onclick="selected('$position');getResourcesForShare('true');" value="上一步"/>
+	<input type="button" id="confirmShare" onclick="selected('resourceList');confirmShare('resourceList')" value="共享确认"/>
+</div>
+<div id="alertMsg" class="alertMsg" style="clear:right;height:20px;">
+</div>
+#parse("/views/share/share-form.vm")

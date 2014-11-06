@@ -1,0 +1,35 @@
+<ul id="organTree" class="treeview-gray">
+		<li><div class="organLi" id="all"><span onclick="selectOrgan('所有机构','all','organTreeArea',false);">所有机构</span></div>
+			<ul id="organTree" class="treeview-gray">
+				#foreach($parent in $organTree)
+					<li><div class="organLi" id="$parent.id"><span onclick="selectOrgan('$parent.name','$parent.id','organTreeArea',false);">$parent.name</span></div>
+						#generalOrganTree($parent)	
+					</li>
+				#end
+			</ul>
+		</li>
+</ul>
+#macro(generalOrganTree $parent)
+	#set($children = $parent.children)
+	<ul class="treeview-gray">
+		#foreach($child in $children)
+			<li>
+				<div class="organLi" id="$child.id"><span onclick="selectOrgan('$child.name','$child.id','organTreeArea',false);">$child.name</span></div>
+				#if($child.children.size()>0)
+					#generalOrganTree($child)
+				#end
+			</li>
+		#end
+	</ul>
+#end
+
+<script>
+	$(function(){
+		$("#organTree").treeview({
+				control: "#treecontrol",
+				persist: "cookie",
+				cookieId: "treeview-black",
+				collapsed: "closed"
+		  });
+	});
+</script>

@@ -1,0 +1,5 @@
+[
+  {% for organ in organs %}
+  	{ "id" : "{{organ.id}}", "text" : "{{organ.name}}",  "state": {"opened" :true,"disabled":false,"selected":{%if organMap and organ.id in organMap.keys()%}true{%else%}false{%endif%}}, "children" : {% if organ.children|length == 0 %} false {%else%} true {%endif%}, "type" : {% if organ.owner %}"private_organ"{%else%}"public_organ" {%endif%} }{% if not loop.last%},{% endif%}
+  {% endfor %}
+]

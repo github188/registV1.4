@@ -1,0 +1,24 @@
+#set($position="resourceList")
+#set($action="$ctxpath/granted/getGrantedList")
+#set($selected=true)
+#set($selectedFunction="selected('$position')")
+#if($r.grantedType=="USER")
+	#parse("/views/user-table.vm")
+#else
+	#parse("/views/role-table.vm")
+#end
+<div class="input-group">
+    <a class="btn btn-success" onclick="selectAll('$position')">全选</a>
+    &nbsp;<a class="btn btn-success" onclick="unselect('$position')">反选</a>
+</div>
+<div class="input-group" style="margin-top:2px;" >
+	#if($r.authorType=="secondGranted")
+         <a class="btn btn-primary"  onclick="selected('resourceList');AT2QuerySelectedResource('$position','true');"><i class='icon-arrow-left'></i>上一步</a>
+         <a class="btn btn-primary"  onclick="selected('resourceList');AT2QuerySelectedGranteds('true');"><i class='icon-arrow-right'></i>下一步</a>
+	#else
+		 <a class="btn btn-primary"  onclick="selected('resourceList');AT1QuerySelectedGranteds('true');"><i class='icon-arrow-right'></i>下一步</a>
+	#end
+</div>
+<div id="alertMsg" class="alertMsg" style="clear:right;height:20px;">
+</div>
+#parse("/views/granted-form.vm")

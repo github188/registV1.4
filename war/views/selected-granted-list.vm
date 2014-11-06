@@ -1,0 +1,21 @@
+#set($position="resourceList")
+#set($action="$ctxpath/granted/querySelectedGranteds")
+#set($selected=true)
+#set($selectedFunction="selected('$position')")
+#if($r.grantedType=="USER")
+	#parse("/views/user-table.vm")
+#else
+	#parse("/views/role-table.vm")
+#end
+<div style="float:left">
+#if($r.authorType=="secondGranted")
+	<input type="button" class="previous" onclick="selected('$position'); AT2QueryGrantedList();" value="上一步"/>
+	<input type="button" id="confirmGranted" onclick="selected('resourceList');confirmGrants('$position')" value="授权确认"/>
+#else
+	<input type="button" onclick="selected('resourceList');AT1QueryGrantedList();" value="上一步"/>
+	<input type="button" onclick="selected('resourceList');AT1QueryResource();" value="下一步"/>
+#end
+</div>
+<div id="alertMsg" class="alertMsg" style="clear:right;height:20px;">
+</div>
+#parse("/views/granted-form.vm")

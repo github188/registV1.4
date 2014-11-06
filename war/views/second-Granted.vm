@@ -1,0 +1,23 @@
+<form id="grantedForm">
+	<input type="hidden" name="organId" id="organId" value="all"/>
+	<input type="hidden" name="vicIds" id="vicIds" value="$!vicIds"/>
+	<input type="hidden" name="ipvicIds" id="ipvicIds" value="$!ipvicIds"/>
+	<input type="hidden" name="aicIds" id="aicIds" value="$!aicIds"/>
+	<input type="hidden" name="organIds" id="organIds" value="$!organIds"/>
+	<input type="hidden" name="cmsId" id="organIds" value="$cmsId"/>
+	<input type="hidden" name="resourceType" id="resourceType" value="$!resourceType"/>
+	所在机构:<input type="text" name="organName" id="organName" readonly="true" value="所有机构" style="width:180px;" onclick="showOrgans('organName','organId');" onblur="hiddenOrgans();"/>
+	<div id="organTreeArea" class="organTree">#parse("/views/organ-tree.vm")</div>
+	授权对象:<select name="grantedType" id="grantedType" style="width:120px;">
+		<option value="USER">用户</option>
+		<option value="ROLE">角色</option>
+	</select> 
+	对象名称:<input type="text" name="name" value="" style="width:120px;" onkeydown="if(event.keyCode==13) { queryGranted(); return false}"/>
+	<input type="button" value="查询" onclick="queryGranted();"/>
+</form>
+<div id="resourceList">
+	
+</div>
+<script>
+	queryGranted();
+</script>

@@ -1,0 +1,13 @@
+#parse("/views/resource-input-page.vm")
+<input type="hidden" id="userIdsPage" name="r.userIds"  value="$!r.userIds"/>
+<input type="hidden" id="roleIdsPage" name="r.roleIds"  value="$!r.roleIds"/>
+
+<input type="hidden" id="obtainCmsIdPage" name="r.obtainCmsId" value="$!r.obtainCmsId"/>
+<input type="hidden" id="currentResourceType" name="r.resourceType" value="$!r.resourceType"/>
+<input type="hidden" id="currentGrantedType" name="r.grantedType" value="$!r.grantedType"/>
+<input type="hidden" id="resourceCmsIdPage" name="r.resourceCmsId" value="$!r.resourceCmsId"/>
+<input type="hidden" id="organIdPage" name="r.organId" value="$!r.organId"/>
+<input type="hidden" id="ownerOrganIdPage" name="r.ownerOrganId" value="$!r.ownerOrganId"/>
+<input type="hidden" name="r.name" value="$!r.name"/>
+
+<input type="hidden" id="authorType" name="r.authorType" value="secondGranted"/>

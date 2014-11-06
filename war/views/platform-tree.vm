@@ -1,0 +1,14 @@
+[
+	#genPlatformTree($platform)
+]
+#macro(genPlatformTree $parent)
+	{"id":"$parent.id","type":"platform","text":"$parent.name","a_attr":{"gbPlatformCmsId":"$!parent.gbPlatformCmsId"},"children":
+	       [
+    		#foreach($child in $parent.children)
+				#if(!$gbChildren.contains($child.cmsId))
+					#genPlatformTree($child)#if($velocityHasNext),#end
+				#end
+			#end
+		   ]
+	}
+#end

@@ -1,0 +1,14 @@
+<div>
+	<form id="alarm-device-form">
+		
+		<div>
+			平台编号:<input type="text" name="cmsId" value="$cmsId"/>&nbsp;&nbsp;&nbsp;
+			设备名称:<input type="text" style="width:120px;" name="name" onkeydown="if(event.keyCode==13) { queryVirtrueAlarm(); return false}"/>
+			<input type="button" value="查询" onclick="queryVirtrueAlarm();"/>
+		</div>
+	</form>
+	<div id="deviceList">
+	#parse("/views/GB/alarm-device-list.vm")
+	</div>
+</div>
+

@@ -1,0 +1,34 @@
+	<div id="main">
+		<div class="basic" id="realList1a">
+			<a>Æ½Ì¨ÁÐ±í  <input type="text" name="name" id="platformName" style="width:80px;"/><input type="button"  value="ËÑË÷" onclick="queryPlatform();"/></a>
+			<div id="realAccordion1" class="myAccordion" style="overflow-x:hidden;overflow-y:auto;">
+				#parse("/views/platform-tree.vm")
+			</div>
+			<a>»¥ÁªÆ½Ì¨</a>
+			<div id="realAccordion2" class="myAccordion" style="overflow-x:hidden;">
+				<img id="ptzImage" src="$ctxpath/pub/images/huazhan/content_menue2.jpg" usemap="#map"/>
+				<map name="Map" id="map">
+					<area shape="rect" coords="155,45,125,70" onmouseover="document.getElementById('ptzImage').style.cursor='pointer';" onmouseout="document.getElementById('ptzImage').style.cursor='';"  onclick="video_ptzcontrol_apin();" alt="ï¿½Û½ï¿½ï¿½ï¿½Ð¡"/>
+					<area shape="rect" coords="155,15,125,40" onmouseover="document.getElementById('ptzImage').style.cursor='pointer';" onmouseout="document.getElementById('ptzImage').style.cursor='';"  onclick="video_ptzcontrol_apout();" alt="ï¿½Û½ï¿½ï¿½Å´ï¿½"/>
+					<area shape="rect" coords="165,18,195,40" onmouseover="document.getElementById('ptzImage').style.cursor='pointer';" onmouseout="document.getElementById('ptzImage').style.cursor='';"  onclick="video_ptzcontrol_bright();" alt="ï¿½ï¿½"/>
+					<area shape="rect" coords="165,48,195,70" onmouseover="document.getElementById('ptzImage').style.cursor='pointer';" onmouseout="document.getElementById('ptzImage').style.cursor='';"  onclick="video_ptzcontrol_dark();" alt="ï¿½ï¿½"/>
+					<area shape="circle" coords="65,22,17" onmouseover="document.getElementById('ptzImage').style.cursor='pointer';" onmouseout="document.getElementById('ptzImage').style.cursor='';" onmousedown="video_ptzcontrol_up();" onmouseup="video_ptzcontrol_stop()" alt="ï¿½ï¿½ï¿½ï¿½"/>
+					<area shape="circle" coords="65,95,17" onmouseover="document.getElementById('ptzImage').style.cursor='pointer';" onmouseout="document.getElementById('ptzImage').style.cursor='';" onmousedown="video_ptzcontrol_down();" onmouseup="video_ptzcontrol_stop()" alt="ï¿½ï¿½ï¿½ï¿½"/>
+					<area shape="circle" coords="25,60,17" onmouseover="document.getElementById('ptzImage').style.cursor='pointer';" onmouseout="document.getElementById('ptzImage').style.cursor='';" onmousedown="video_ptzcontrol_left();" onmouseup="video_ptzcontrol_stop()" alt="ï¿½ï¿½ï¿½ï¿½"/>
+					<area shape="circle" coords="100,60,17" onmouseover="document.getElementById('ptzImage').style.cursor='pointer';" onmouseout="document.getElementById('ptzImage').style.cursor='';" onmousedown="video_ptzcontrol_right();" onmouseup="video_ptzcontrol_stop()" alt="ï¿½ï¿½ï¿½ï¿½"/>
+					<area shape="rect" coords="23,155,52,175" onmouseover="document.getElementById('ptzImage').style.cursor='pointer';" onmouseout="document.getElementById('ptzImage').style.cursor='';" onclick="video_ptzcontrol_zoomout();" alt="ï¿½Å´ï¿½"/>
+					<area shape="rect" coords="60,160,90,185" onmouseover="document.getElementById('ptzImage').style.cursor='pointer';" onmouseout="document.getElementById('ptzImage').style.cursor='';" onclick="video_ptzcontrol_zoomin();" alt="ï¿½ï¿½Ð¡"/>
+				</map>
+				<div id="slider" class="mySlider"></div>
+			</div>
+			<a>¹²ÏíÆ½Ì¨</a>
+			<div id="realAccordion3" class="myAccordion" style="overflow-x:hidden;overflow-y:auto;">
+				
+			</div>
+		</div>
+	</div>
+	<script>
+		  $(function(){
+		  	   realInit();
+		  });
+	</script>

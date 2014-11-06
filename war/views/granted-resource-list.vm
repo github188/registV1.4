@@ -1,0 +1,19 @@
+#set($position="resourceList")
+#set($action="$ctxpath/authorization/queryPermissionByGranted")
+#set($selected=true)
+#set($selectedFunction="permissionSelected('$position','type')")
+#parse("/views/granted-resource-table.vm")
+<div style="clear:both;">
+	<form action="$action" id="${position}PageForm">
+		#parse("/views/resource-input-page.vm")
+		<input type="hidden" name="r.grantedId" value="$granted.id"/>
+		<input type="hidden" name="r.grantedType" value="$granted.grantedType"/>
+		<input type="hidden" name="r.name" value="$!r.name"/>
+		<input type="hidden" name="r.resourceType" value="$r.resourceType"/>
+		<input type="hidden" name="r.roleIds" value="$!r.roleIds"/>
+		<input type="hidden" name="r.cmsId" value="$!r.cmsId"/>
+		<input type="hidden" id="currentType" name="r.currentType" value="$r.resourceType"/>
+		<input type="hidden" name="dataSource" value="$dataSource"/>
+		#parse("/views/page.vm")
+	</form>
+</div>

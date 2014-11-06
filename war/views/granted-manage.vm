@@ -1,0 +1,38 @@
+<div>
+	<div class="processOne">
+		<div class="row" style="margin-left:1px;margin-top:10px;" id="navigate">
+        	<div class="col-md-12">
+                <div class="input-group">
+            		<a class="processRadio" id="p1">
+            			<input type="radio" style="cursor: pointer;" name="grantedType" value="firstGranted" checked="true" onclick="grantedTypeOne()"/>
+            			授权方式一:
+            		</a>
+            		<a class="process" id="o1" onclick="selected('resourceList');AT1QueryGrantedList('/granted/getGrantedList');"><span class="processTitle">选择用户或角色</span></a>
+            		&nbsp;<a><i class="icon-forward"></i></a>&nbsp;
+            		<a class="process" id="o2" onclick="selected('resourceList');AT1QuerySelectedGranteds('true');"><span class="processTitle">查看选中的用户或角色</span></a>
+            		&nbsp;<a><i class="icon-forward"></i></a>&nbsp;
+            		<a class="process" id="o3" onclick="selected('resourceList');AT1QueryResource();"><span class="processTitle">选择资源</span></a>
+            		&nbsp;<a><i class="icon-forward"></i></a>&nbsp;
+            		<a class="process" id="o4" onclick="selected('resourceList');AT1QuerySelectedResource('resourceList','true')"><span class="processTitle">查看选中的资源</span></a>
+            		&nbsp;<a><i class="icon-forward"></i></a>&nbsp;
+            		<a class="process" id="o5" onclick="selected('resourceList');confirmGrants('resourceList','$r.authorType')"><span class="processTitle">授权确认</span></a>
+        		</div>
+    		</div>
+		</div>
+	</div>
+	
+</div>
+<div id="grantedArea">
+	#parse("/views/granted.vm")
+	<div class="row" style="margin-left:1px;margin-top:10px;">
+		<div class="col-md-12">
+    		<div class="portlet box blue" style="margin-bottom:0px">
+                <div class="portlet-title"></div>
+				<div class="portlet-body">
+					
+				</div>
+            </div>
+			 
+        </div>
+    </div>
+</div>

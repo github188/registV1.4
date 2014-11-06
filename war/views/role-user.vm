@@ -1,0 +1,68 @@
+<div class="title">角色:$role.name</div>
+<div class="roleUserForm">
+<form id="roleUserForm">
+	<input type="hidden" name="ownerOrganId" value="$!ownerOrganId" id="ownerOrganId"/>
+	<input type="hidden" name="userIds" id="userIds"/>
+	<input type="hidden" id="selectOrganFuncton" value=""/>
+	<input type="hidden" name="userId" id="userId" value=""/>
+	<input type="hidden" id="grantedId" name="roleId" id="roleId" value="$!role.id"/>
+	<input type="hidden" name="movLIds" id="movLIds" value="$!movLIds"/>
+	<input type="hidden" name="movRIds" id="movRIds" value="$!movRIds"/>
+	<div id="theirOrgan">所在机构:<input type="text" name="ownerOrganName" id="ownerOrganName" #if($r.ownerOrgan) value="$r.ownerOrgan.name" #else value="所有机构" #end style="width:180px;" onclick="showOptions('ownerOrganName','ownerOrganOptions','roleUserForm');"  onkeyup="return organKeyDownEvent(event,'ownerOrganName','ownerOrganOptions','roleUserForm');" onblur="hiddenOrgans(event,'options','setOrganId(\'roleUserForm\',\'getOwnerOrganIdByName\',\'ownerOrganId\',\'ownerOrganName\')');"/></div> 
+	用户名称:<input type="text" name="name" id="logonName" value="" onclick="showOptions('logonName','userOptions','roleUserForm');"  onkeyup="return keyDownEvent(event,'roleUserForm');"  onblur="hideOptions();" style="width:120px;"/>
+		  <input type="button" value="查询" onclick="queryUserAtRoleManage();"/>
+</form>
+</div>
+<div id="userHas">
+	#parse("/views/user-has.vm")
+</div>
+<div id="moveUser">
+	<div><input type="button" value="<" style="margin-top:150px;width:99%;" onclick="moveToL();"/></div>
+	<div><input type="button" value="<<" style="margin-top:10px;width:99%;" onclick="moveAllToL();"/></div>
+	<div><input type="button" value=">" style="margin-top:10px;width:99%;" onclick="moveToR();"/></div>
+	<div><input type="button" value=">>" style="margin-top:10px;width:99%;" onclick="moveAllToR();"/></div>
+	<div style="margin-top:100px;"><input type="button" style="width:99%;"value="确定" onclick="grantedRoleToUsers('$role.id');"/></div>
+</div>
+<div id="userNotHas">
+</div>
+
+<div id="alertMsg" class="alertMsg" style="clear:right;height:20px;">
+</div>
+<script>
+	forGrantedRole("$role.id");
+	#*
+	$(function(){
+	  	   $( "#userNotHas .logonName").draggable({
+				appendTo: "body",
+				helper: "clone",
+				stop:function(event){
+					var el = event.srcElement? event.srcElement : event.target;
+					$("#myRow1_"+el.id).replaceWith("");
+				}
+		   });
+		   
+		   $("#userHas").droppable({
+				drop: function(event) {
+					var el = event.srcElement? event.srcElement : event.target;
+					 $("#userList2").append("<div class='myRow' id='myRow2_"+el.id + "' style='background-color:#8C8C8C;'><div class='logonName' id='"+el.id+"' style='background-color:#8C8C8C;' >"+$("#"+el.id).html()+"</div></div>");
+				}
+		   });
+		   
+		    $("#userHas .logonName" ).draggable({
+				appendTo: "body",
+				helper: "clone",
+				stop:function(event){
+					var el = event.srcElement? event.srcElement : event.target;
+					$("#myRow2_"+el.id).replaceWith("");
+				}
+		   });
+		   
+		   $("#userNotHas").droppable({
+				drop: function(event) {
+					var el = event.srcElement? event.srcElement : event.target;
+					$("#userList1").append("<div class='myRow' id='myRow1_"+el.id+ "' style='background-color:#4478AA;'><div class='logonName' id='"+el.id+"'  style='background-color:#4478AA;' >"+$("#"+el.id).html()+"</div></div>");
+				}
+		   });
+	  });*#
+</script>
+<div id="ownerOrganTreeArea" class="organTree" onblur="hiddenOrgans(event,'ownerOrganTreeArea');"></div>

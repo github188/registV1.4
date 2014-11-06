@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<Response>
+	#if($subscribe)
+    <CmdType>$subscribe.cmdType</CmdType>
+    <SN>$subscribe.SN</SN>
+    <DeviceID>$subscribe.deviceID</DeviceID>
+	#end
+    <Result>$result</Result>
+</Response>

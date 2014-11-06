@@ -1,0 +1,17 @@
+ #set($pageCount=${page.pageCount})
+ <div class="pagination" id="${page.position}Page">
+    <a href="#" class="first" data-action="first">&laquo;</a>
+    <a href="#" class="previous" data-action="previous">&lsaquo;</a>
+    <input type="text" readonly="readonly" data-max-page="$pageCount" />
+    <a href="#" class="next" data-action="next">&rsaquo;</a>
+    <a href="#" class="last" data-action="last">&raquo;</a>
+</div>
+<script type='text/javascript'>
+    $(${page.position}Page).jqPagination({
+        paged: function(page) {
+			$callback(page,${page.recordCount});
+        },
+		current_page:${page.currentPage},
+		page_string:'ตฺ${page.currentPage}าณ/$pageCount'
+    });
+</script>

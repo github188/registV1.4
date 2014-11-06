@@ -1,0 +1,16 @@
+{ 
+  "files":
+    [
+	 #if($size)
+      {
+        "url": "http://url.to/file/or/page",
+        "thumbnail_url": "http://url.to/thumnail.jpg ",
+        "name": "$name",
+        "type": "$contentType",
+        "size": $size,
+        "delete_url": "$ctxpath/configManage/deleteMyconf",
+        "delete_type": "DELETE"
+      }
+	  #end
+    ]
+}

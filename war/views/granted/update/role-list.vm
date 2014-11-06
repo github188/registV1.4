@@ -1,0 +1,21 @@
+<table class="table table-striped  table-bordered table-hover">
+		<tr>
+			<th style="width:50px;"class="table-checkbox"><input type="checkbox" class="group-checkable" data-set="#userRoleList .checkboxes" /></th>
+			<th>½ÇÉ«Ãû³Æ</th>
+		</tr>
+		<tbody>
+	    #foreach($granted in $allRoles)
+		<tr class="odd gradeX">
+			<td><input type="checkbox" class="checkboxes" name="$granted.id" value="$granted.id"/></td>
+			<td>$granted.name</td>		
+		</tr>
+		#end
+        </tbody>
+</table>
+  <script>
+      	jQuery(document).ready(function() {       
+          App.init();
+		  TableManaged.init('userRoleList');
+      });
+   </script>
+

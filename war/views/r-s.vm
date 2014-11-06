@@ -1,0 +1,5 @@
+#if($velocityCount%2==1)
+	#set($class="tdOne")
+#else
+	#set($class="tdTwo")
+#end

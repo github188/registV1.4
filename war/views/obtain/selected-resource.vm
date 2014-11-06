@@ -1,0 +1,32 @@
+#set($position="resourceList")
+##设置当前板面
+<input type="hidden" id="board" name="board" value="resource"/>
+<form id="grantedForm">
+	#parse("/views/obtain/input.vm")
+	<input type="hidden" name="grantedType" value="$!grantedType"/>
+	<input type="hidden" id="selectOrganFuncton" value="queryResource"/>
+	<table>
+		<tr>
+			<td>所在平台:</td>
+			<td><select name="r.resourceCmsId" id="resourceCmsId">
+					#foreach($plaform in $platforms)
+						<option value="$plaform.id" #if("$r.resourceCmsId"=="$plaform.id") selected="true"#end>$plaform.name</option>
+					#end
+  				</select>
+  			</td>
+			<td>资源类型:</td>
+			<td><select name="r.resourceType" id="resourceType" style="width:120px;" onchange="selected('resourceList');obtainQuerySelectedResource('$position',false);">
+					#parse("/views/resource-option.vm")
+				</select>
+			</td>
+  			<td>资源名称:</td>
+  			<td>
+  				<input type="text" name="r.name" value="" style="width:120px;" onkeydown="if(event.keyCode==13) { selected('resourceList');obtainQuerySelectedResource('$position',false); return false}"/>
+				<input type="button" value="查询" onclick="selected('resourceList');obtainQuerySelectedResource('$position',false);"/>
+			</td>
+		</tr>
+	</table>
+</form>
+<div id="resourceList" class="resourceList">
+	#parse("/views/obtain/selected-resource-list.vm")	
+</div>

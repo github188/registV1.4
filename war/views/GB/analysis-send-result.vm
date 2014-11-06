@@ -1,0 +1,43 @@
+<div>
+<h3>分析结果如下表</h3>
+</div>
+<table width="50%" border="1" cellpadding="0" cellspacing="0" id="returnResult">
+	<tr><th style="text-align:left">资源类型</th><th style="text-align:left">总数</th></tr>
+<tr class="tdTitle">
+	        <td style="width:20%">Organ</td>
+			<td>$totalOrgan</td>
+</tr>
+<tr>
+			<td style="width:20%">VIS</td>
+			<td>$totalVIS</td>
+</tr>
+<tr>
+			<td style="width:20%">DVR</td>
+			<td>$totalDVR</td>
+</tr>
+<tr>
+			<td style="width:20%">VIC</td>
+			<td>$totalVIC</td>
+</tr>
+<tr>
+			<td style="width:20%">IPVIC</td>
+			<td>$totalIPVIC</td>
+</tr>
+<tr>
+			<td style="width:20%">AIC</td>
+			<td>$totalAIC</td>
+</tr>
+<tr>
+			<td style="width:20%">other</td>
+			<td>$other</td>
+</tr>
+<tr>
+			<td style="width:20%">sum</td>
+			<td>$sum</td>
+</tr>
+<tr>
+			<td style="width:20%">实际发送总数</td>
+			<td>$realSum</td>
+</tr>
+
+</table>

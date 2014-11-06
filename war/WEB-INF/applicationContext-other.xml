@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" 
+"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="xfire.annotationServiceFactory" class="org.codehaus.xfire.annotations.AnnotationServiceFactory">
+		<constructor-arg index="0">
+			<ref bean="xfire.commonsAnnotations" />
+		</constructor-arg>
+		<constructor-arg index="1">
+			<ref bean="xfire.transportManager" />
+		</constructor-arg>
+		<constructor-arg index="2">
+			<ref bean="xfire.aegisBindingProvider" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="xfire.commonsAnnotations"
+		class="org.codehaus.xfire.annotations.jsr181.Jsr181WebAnnotations" />
+
+	<bean id="autoScan" class="com.megaeyes.regist.auto.AutoScan" />
+
+	<bean id="scanMonitorJob"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="autoScan" />
+		<property name="targetMethod" value="monitor" />
+		<property name="concurrent" value="false" />
+	</bean>
+
+	<bean id="flushStatusJob"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="autoScan" />
+		<property name="targetMethod" value="flushStatus" />
+		<property name="concurrent" value="false" />
+	</bean>
+
+	<bean id="rectifyJob"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="autoScan" />
+		<property name="targetMethod" value="rectify" />
+		<property name="concurrent" value="false" />
+	</bean>
+	
+	<bean id="pullDataJob"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="autoScan" />
+		<property name="targetMethod" value="pullAllData" />
+		<property name="concurrent" value="false" />
+	</bean>
+
+	<bean id="initSubscribeJob"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="autoScan" />
+		<property name="targetMethod" value="initSubscribe" />
+		<property name="concurrent" value="false" />
+	</bean>
+
+	<bean id="monitorSimpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="jobDetail" ref="scanMonitorJob" />
+		<property name="startDelay" value="${monitor_start_delay}" />
+		<property name="repeatInterval" value="${monitor_repeat_interval}" />
+	</bean>
+
+	<!-- 刷新设备在线状态 -->
+	<bean id="flushStatusSimpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="jobDetail" ref="flushStatusJob" />
+		<property name="startDelay" value="${flushStatus_start_delay}" />
+		<property name="repeatInterval" value="${flushStatus_repeat_interval}" />
+	</bean>
+
+	<!-- 初始化目录信息 -->
+	<bean id="rectifyJobSimpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="jobDetail" ref="rectifyJob" />
+		<property name="startDelay" value="${rectify_start_delay}" />
+		<property name="repeatCount">
+			<value>0</value>
+		</property>
+	</bean>
+	<!-- 初始化订阅刷新 -->
+	<bean id="initSubscribeJobSimpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="jobDetail" ref="initSubscribeJob" />
+		<property name="startDelay" value="${initSubscribe_start_delay}" />
+		<property name="repeatCount">
+			<value>0</value>
+		</property>
+	</bean>
+	
+	<bean id="pullDataJobCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="pullDataJob" />
+		<!-- 每天凌晨1点运行 -->
+		<property name="cronExpression" value="0 0 1 * * ?" />
+	</bean>
+
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="monitorSimpleTrigger" />
+<!--  				<ref bean="rectifyJobSimpleTrigger" /> -->
+ 				<ref bean="pullDataJobCronTrigger" />
+				<ref bean="initSubscribeJobSimpleTrigger" />
+				<ref bean="flushStatusSimpleTrigger" />
+			</list>
+		</property>
+	</bean>
+</beans>
+

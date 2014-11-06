@@ -1,0 +1,21 @@
+<table width="100%" border="0" cellpadding="1" cellspacing="1" id="${position}T">
+		<tr class="tdTitle">
+			<td>机构名称</td>
+			<td>父机构</td>
+			<td>VIC总数</td>
+			<td>IPVIC总数</td>
+			<td>AIC总数</td>
+			<td>操作</td>
+	    </tr>
+	    #foreach($organ in $resources)
+	    #parse("/views/r-s.vm")
+		<tr class="$class">
+			<td>$organ.name</td>		
+			<td>$!organ.parent.name</td>		
+			<td>$!organMap.get($organ.id).vics</td>		
+			<td>$!organMap.get($organ.id).ipvics</td>		
+			<td>$!organMap.get($organ.id).aics</td>		
+			<td><input type="button" value="获取设备" onclick="getGBOuterDeviceByOrgan('$organ.cmsId','$organ.stdId');"/><input type="button" value="删除设备" onclick="deleteGBOuterDeviceByOrgan('$organ.cmsId','$organ.id');"/></td>		
+		</tr>
+		#end
+</table>

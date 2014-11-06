@@ -1,0 +1,32 @@
+#set($position="organList")
+#set($action="$ctxpath/organ/getOrganByCmsId")
+#set($showPageSize="false")
+<table width="100%" border="0" cellpadding="1" cellspacing="1" id="${position}T">
+	<tr class="tdTitle">
+		<td style="width:120px">机构名称</td>
+		<td>机构层次</td>
+		<td style="width:60px">操作</td>
+    </tr>
+    #foreach($organ in $organs)
+    #parse("/views/r-s.vm")
+	<tr class="$class">
+		<td>$organ.name</td>		
+		<td>$organ.getOrganNamePath()</td>		
+        <td><a href="#" onclick="forCreateOrgan('$organ.id','$organ.name')">新增子机构</a></td>
+	</tr>
+	#end
+</table>
+<div style="text-align:center;" ><input type="button" value="新增根机构" onclick="forCreateOrgan()"/></div>
+<div style="clear:both;">
+<form action="$action" id="${position}PageForm">
+	<input type="hidden" name="cmsId" value="$cmsId"/>
+	<input type="hidden" name="name" value="$!name"/>
+	<input type="hidden" name="parentId" value="$!parentId"/>
+	#parse("/views/page.vm")
+</form>
+<form id="forCreateOrganForm">
+	<input type="hidden" id="forCreateOrganFormCmsId" name="cmsId" value="$cmsId"/>
+	<input type="hidden" id="forCreateOrganFormName" name="name" value=""/>
+	<input type="hidden" id="forCreateOrganFormParentId" name="parentId" value=""/>
+</form>
+</div>

@@ -1,0 +1,7 @@
+<input type="hidden" id="vicIdsPage" name="r.vicIds" value="$!r.vicIds"/>
+<input type="hidden" id="ipvicIdsPage" name="r.ipvicIds"  value="$!r.ipvicIds"/>
+<input type="hidden" id="aicIdsPage" name="r.aicIds" value="$!r.aicIds"/>
+<input type="hidden" id="organIdsPage" name="r.organIds" value="$!r.organIds"/>
+
+<input type="hidden" id="original" name="r.original" value="true"/>
+<input type="hidden" id="first" name="r.first" value="false"/>

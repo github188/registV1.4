@@ -1,0 +1,16 @@
+#set($position="resourceList")
+#set($action="$ctxpath/obtain/getGrantedList")
+#set($selected=true)
+#set($selectedFunction="selected('$position')")
+#if($r.grantedType=="USER")
+	#parse("/views/user-table.vm")
+#else
+	#parse("/views/role-table.vm")
+#end
+<div style="float:left">
+	<input type="button" onclick="selected('resourceList');obtainQuerySelectedResource('$position',true);" value="上一步"/>
+	<input type="button" onclick="selected('resourceList');obtainQuerySelectedGranteds('true');" value="下一步"/>
+</div>
+<div id="alertMsg" class="alertMsg" style="clear:right;height:20px;">
+</div>
+#parse("/views/obtain/granted-form.vm")

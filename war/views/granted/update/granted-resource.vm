@@ -1,0 +1,18 @@
+[
+	{"id":"role","children":[
+    	#foreach($id in $roleIds)
+			{"id":"$id","resourceId":"","resourceType":""}#if($velocityHasNext),#end
+		#end
+	]},
+	{"id":"user","children":[
+    	#foreach($id in $userIds)
+			{"id":"$id","resourceId":"","resourceType":""}#if($velocityHasNext),#end
+		#end
+	]}
+	,
+	{"id":"authorization","children":[
+		#foreach($au in $authorizations)
+			{"id":"$au.id","resourceId":"$au.resourceId","resourceType":"$au.resourceType"}#if($velocityHasNext),#end
+		#end
+	]}
+]

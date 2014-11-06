@@ -1,0 +1,41 @@
+##设置当前板面
+<input type="hidden" id="board" name="board" value="resource"/>
+<form id="grantedForm">
+	#parse("/views/input.vm")
+	<input type="hidden" id="selectOrganFuncton" value="querySelectedResource"/>
+	<input type="hidden" id="grantedType" name="r.grantedType" value="$!r.grantedType"/>
+	<input type="hidden" name="r.authorType" value="$!r.authorType"/>
+	<input type="hidden" id="ownerOrganName" value=""/>
+	<table>
+		<tr>
+			<td>所在平台:</td>
+			<td><input type="text" name="cmsName" id="cmsName" style="width:180px;" value="所有下级平台" onclick="showPlatforms('cmsId','cmsName','platformTreeArea')" onblur="hiddenOrgans(event,'platformTreeArea');"/></td>
+			<td>资源类型:</td>
+			<td><select name="r.resourceType" id="resourceType" style="width:185px;" onchange="selected('resourceList');AT2QuerySelectedResource('$position','resourceType','true');">
+					#parse("/views/resource-option.vm")
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>所在机构:</td>
+			##<td><input type="text" name="organName" id="organName"  readonly="true" value="所有机构" style="width:180px;" onclick="getOrganTree('organName','organId','organTreeArea');" onblur="hiddenOrgans(event,'organTreeArea');"/></td>
+			<td><input type="text" name="organName" id="organName"  value="所有机构" style="width:180px;" onclick="showOptions('organName','organOptions','grantedForm');"  onkeyup="return organKeyDownEvent(event,'organName','organOptions','grantedForm');" onblur="hiddenOrgans(event,'options','setOrganId(\'grantedForm\',\'getOrganIdByName\',\'organId\',\'organName\')');"/></td>
+			<td>资源名称:</td>
+			<td>
+				<input type="text" name="r.name" value="" style="width:180px;" onkeydown="if(event.keyCode==13) { selected('resourceList');AT2QuerySelectedResource('$position','resourceType','true'); return false}"/>
+				<input type="button" value="查询" onclick="selected('resourceList');AT2QuerySelectedResource('$position','resourceType','true');"/></td>
+		</tr>
+	</table>
+</form>
+<div id="resourceList">
+	#parse("/views/selected-resource-list.vm")
+</div>
+<script>
+	$(function(){
+		if($("#r.resourceType").val()=="ORGAN"){
+			$("#theirOrgan").hide();
+		}else{
+			$("#theirOrgan").show();
+		}
+	});
+</script>

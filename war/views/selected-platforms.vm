@@ -1,0 +1,3 @@
+#foreach($platform in $platformOptions)
+	<option value="$platform.id" #if($r.cmsId==$platform.id)selected="true"#end>$platform.name</option>
+#end

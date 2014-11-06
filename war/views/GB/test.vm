@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    	<meta content="IE=EmulateIE7" http-equiv="X-UA-Compatible" />
+		<meta content="IE=8" http-equiv="X-UA-Compatible" />
+		<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    	<title id="title">国标平台测试</title>
+	</head>
+	<body >
+    
+<b>一、对方平台登录验证(接入到中心)</b>
+<form action="/regist/gbOuterDevice/getPasswordBycmsId" method="POST">
+	登录名:<input type="text" name="logonName" value="650100" />
+	<input type="submit" value="提交" />
+</form>
+<br/>
+<b>二、通过对方设备Id获取我方平台的设备naming. (接入到中心)</b>
+<form action="/regist/gbOuterDevice/getNamingById" method="POST">
+	ID:<input type="text" name="id" value="" />
+	<input type="submit" value="提交" />
+</form>
+<br/>
+
+<b>三、通过设备naming获取对方平台设备Id(接入到中心)</b>
+<form action="/regist/gbOuterDevice/getIdByNaming" method="POST">
+	naming:<input type="text" name="naming" value="" />
+	<input type="submit" value="提交" />
+</form>
+<br/>
+
+<b>四A、查询对方设备(中心到接入)</b>
+<form action="/regist/gbOuterDevice/queryOuterDevicesTest" method="POST">
+	message:<textArea name="message" style="width:300px;height:100px"><?xml version="1.0"?><Query><CmdType>Catalog</CmdType><SN>1</SN><DeviceID>01000200002000000001</DeviceID></Query></textArea>
+	上级国标平台ID:<input type="text" name="fromPlatformId" value="01000200002000000001" />
+	<input type="submit" value="提交" />
+</form>
+</br>
+<b>四B、本级模拟对方查询本平设备</b>
+<form action="/regist/gbShareDevice/queryDevice" method="POST">
+	message:<textArea name="message" style="width:300px;height:100px"><?xml version="1.0"?><Query><CmdType>Catalog</CmdType><SN>1</SN><DeviceID>01000200002000000001</DeviceID></Query></textArea>
+	上级国标平台ID:<input type="text" name="fromPlatformId" value="01000200002000000001"/>
+	<input type="submit" value="提交" />
+</form>
+</br>
+<b>四C、发送结果分析</b>
+<form action="/regist/analysis/analysisSendResult" method="POST">
+	sn:<input type="text" name="sn" value=""/>
+	上级国标平台ID:<input type="text" name="platformCmsId" value=""/>
+	<input type="submit" value="提交" />
+</form>
+</br>
+<a href="/regist/gbOuterDevice/queryOuterDevices?cmsId=650100&deviceId=65010000000000000000&cmdType=Catalog">查询设备</a>
+<br/>
+
+<b>五、接收对方平台设备(接入到中心)</b>
+<form action="/regist/gbOuterDevice/deviceRegist" method="POST">
+	message:<textArea name="message" style="width:300px;height:100px">
+								<Response>
+									<CmdType>Catalog</CmdType>
+									<SN>17430</SN>
+									<DeviceID>65010000000000000000</DeviceID>
+									<SumNum>100</SumNum>
+									<DeviceList Num="2">
+										<Item>
+										<DeviceID>65010000001110000001</DeviceID>
+										<Name>DVR1</Name>
+										<Manufacturer>Manufacturer 1</Manufacturer>
+										<Model>Model 1</Model>
+										<Owner>Owner 1</Owner>
+										<CivilCode>CivilCode 1</CivilCode> 
+										<Block>Block 1</Block>
+										<Address>积水潭桥南</Address>
+										<Parental>1</Parental>
+										<ParentID>65010000000000000000</ParentID>
+										<SafetyWay>0</SafetyWay>
+										<RegisterWay>1</RegisterWay>
+										<CertNum>CertNum 1</CertNum>
+										<Certifiable>0</Certifiable>
+										<ErrCode>400</ErrCode>
+										<EndTime>2010-11-11T19:46:17</EndTime>
+										<Secrecy>0</Secrecy>
+										<IPAddress>192.168.3.81</IPAddress>
+										<Port>5060</Port>
+										<Password>Password 1</Password>
+										<Status>Status 1</Status >
+										<Longitude>171.3</Longitude>
+										<Latitude>34.2</Latitude>
+										</Item> 
+										</DeviceList>
+								</Response>
+		    </textArea>
+	<input type="submit" value="提交" />
+</form>
+<br/>
+<b>六、平台注册</b>
+<form action="/regist/gbOuterDevice/platformRegist" method="GET">
+	登录名:<input type="text" name="cmsId" value="650100" />
+	接入地址:<input type="text" name="access_server" value="http://192.168.4.6:8773/accessServer/" />
+	<input type="submit" value="提交" />
+</form>
+<br/>
+
+<b>七、共享设备</b>
+<form action="http://localhost:8080/regist/gbShareDevice/queryDevice" method="GET">
+	message:<textArea name="message" style="width:300px;height:100px"><?xml version="1.0"?><Query><CmdType>Catalog</CmdType><SN>1</SN><DeviceID>920001</DeviceID></Query></textArea>
+	<input type="submit" value="提交" />
+</form>
+<br/>	
+<b>八、<a href="/regist/manager/flushStatus">刷新设备在线状态</a></b>
+<br/><br/>
+<br/>
+
+<br/>	
+<b>八、<a href="/regist/manager/monitor">更新设备基本信息</a></b>
+<br/><br/>
+<br/>
+
+<b>17、上级注册</b>
+<form action="/regist/gbOuterDevice/platformRegist" method="post">
+	文件名称:<input type="text" name="access_server" value="192.168.5.12:8085" /></br>
+	文件名称:<input type="text" name="cmsId" value="34010000002000000001"/></br>
+	文件名称:<input type="text" name="description" value="success" /></br>
+	文件名称:<input type="text" name="errorCode" value="0" /></br>
+	文件名称:<input type="text" name="expires" value="20" /></br>
+	文件名称:<input type="text" name="online" value="true" /></br>
+	<input type="submit" value="提交" />
+</form>
+
+<b>18、消息订阅</b>
+<form action="/regist/gbEvent/subscribe" method="post">
+	源平台Id:<input type="text" name="fromPlatformId" value="" /></br>
+	超时时间:<input type="text" name="expire" value=""/>(秒)</br>
+	订阅标识:<input type="text" name="subscribeId" value="" />(要保证唯一)</br>
+	message:<textArea name="message" style="width:300px;height:100px"><?xml version="1.0"?><Query><CmdType>Catalog</CmdType><SN>1</SN><DeviceID>01000210002000000001</DeviceID></Query></textArea>
+	<input type="submit" value="提交" />
+</form>
+
+<b>19、接收消息通知</b>
+<form action="/regist/gbOuterDevice/updateCatalog" method="post">
+	源平台Id:<input type="text" name="fromPlatformId" value="" /></br>
+	message:<textArea name="message" style="width:300px;height:100px">
+	<Notify>
+        <CmdType>Catalog</CmdType>
+        <SN>1</SN>
+        <DeviceID>34010000002000000001</DeviceID>
+        <SumNum>1</SumNum>
+        <DeviceList Num="1">
+            <Item>
+            	<DeviceID>34010000001310000051</DeviceID>
+            	<Event>OFF</Event>
+            </Item>
+        </DeviceList>
+    </Notify>
+
+	</textArea>
+	<input type="submit" value="提交" />
+</form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<table class="table table-striped  table-bordered table-hover">
+	<thead>
+			<tr>
+    			<th style="width:50%">平台名称</th>
+    			<th style="width:50%">操作</th>
+			</tr>
+    </thead>
+	<tbody>
+	    #foreach($platform in $gbPlatforms)
+		<tr id="tr_$platform.cmsId" >
+			<td  #if($statusMap.get($platform.cmsId)) style="color:blue" #else style="color:grey;"#end>$platform.name</td>		
+			<td>
+					#if($platform.type=="CHILD")
+                        <a class="btn btn-success" id="getGBDevices_$platform.cmsId" onclick="getGBOuterDeviceBycmsId('$platform.cmsId','$platform.cmsId');"><i class="fa fa-search"></i>检索</a>
+                        &nbsp;<a class="btn btn-danger" id="subscribeDevices" onclick="deletePlatformResource('$platform.cmsId')"><i class="fa fa-trash-o"></i>删除</a>
+						#if($subscribeMap.keySet().contains($platform.cmsId) &&  $subscribeMap.get($platform.cmsId).status.name()=='NORMAL')
+							&nbsp;<a class="btn btn-success" onclick="addSubscribe('$platform.cmsId',0)"><i class="fa fa-remove">取消订阅</a>
+						#else
+							&nbsp;<a class="btn btn-success" onclick="addSubscribe('$platform.cmsId')"><i class="fa fa-rss"></i>订阅</a>
+						#end
+					#else
+					 &nbsp;<a class="btn btn-danger" onclick="deleteParentPlatform('$platform.id')"><i class="fa fa-trash-o"></i>删除</a>
+					#end
+					
+			</td>		
+		</tr>
+		#end
+    </tbody>
+</table>
+<div class="input-group">
+    <a class="btn btn-success" onclick="forCreateParentPlatform('$!cmsId');"><i class="fa fa-angle-up"></i>创建上级平台</a>
+    &nbsp;<a class="btn btn-success" onclick="forCreateChildPlatform('$!cmsId');"><i class="fa fa-angle-down"></i>创建下级平台</a>
+</div>

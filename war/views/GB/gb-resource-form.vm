@@ -1,0 +1,20 @@
+##设置当前板面
+<form id="manageDeivesForm">
+	<input type="hidden" name="r.cmsId" value="$!r.cmsId"/>
+	<input type="hidden" name="r.organId" value="all"/>
+	<table>
+		<tr>
+			<td>资源类型:</td>
+			<td><select name="r.resourceType" id="resourceType" style="width:185px;" onchange="getGBOuterDevice()">
+					#parse("/views/resource-option.vm")
+				</select>
+			</td>
+			<td>资源名称:</td>
+			<td><input type="text" name="r.name" value="$!r.name" style="width:180px;"  onkeydown="if(event.keyCode==13) {return false}"/>
+			    <input type="button" id="query" value="查询" onclick="getGBOuterDevice()"/></td>
+		</tr>
+	</table>
+</form>
+<div id="resourceList">
+	#parse("/views/GB/gb-device-table.vm")
+</div>

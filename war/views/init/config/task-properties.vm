@@ -1,0 +1,49 @@
+<form id="updateTaskConfForm" class="form-horizontal" role="form">
+	<div class="form-body">
+       <div class="form-group">
+          <label  class="col-md-4 control-label">刷新通知开始时间<span class="required">*</span></label>
+          <div class="col-md-8">
+			 <input type="text" name="monitor_start_delay" value="$config.getProperty("monitor_start_delay")" class="form-control" />
+          </div>
+		</div>
+       <div class="form-group">
+          <label  class="col-md-4 control-label">刷新通知时间间隔<span class="required">*</span></label>
+          <div class="col-md-8">
+			 <input type="text" name="monitor_repeat_interval" value="$config.getProperty("monitor_repeat_interval")" class="form-control" />
+          </div>
+		</div>
+		<div class="form-group">
+          <label  class="col-md-4 control-label">刷新设备在线状态开始时间<span class="required">*</span></label>
+          <div class="col-md-8">
+			 <input type="text" name="flushStatus_start_delay" value="$config.getProperty("flushStatus_start_delay")" class="form-control" />
+          </div>
+		</div>
+		<div class="form-group">
+          <label  class="col-md-4 control-label">刷新设备在线状态时间间隔<span class="required">*</span></label>
+          <div class="col-md-8">
+			 <input type="text" name="flushStatus_repeat_interval" value="$config.getProperty("flushStatus_repeat_interval")" class="form-control" />
+          </div>
+		</div>
+#*
+	    <div class="form-group">
+          <label  class="col-md-4 control-label">数据检查开始时间<span class="required">*</span></label>
+          <div class="col-md-8">
+			 <input type="text" name="rectify_start_delay" value="$config.getProperty("rectify_start_delay")" class="form-control" />
+          </div>
+		</div>
+*#
+		<div class="form-group">
+          <label  class="col-md-4 control-label">刷新订阅开始时间<span class="required">*</span></label>
+          <div class="col-md-8">
+			 <input type="text" name="initSubscribe_start_delay" value="$config.getProperty("initSubscribe_start_delay")" class="form-control" />
+          </div>
+		</div>
+	    <div class="form-group">
+          <div class="col-md-12" style="text-align:center;">
+			 <button type="button" class="btn-success" onclick="Config.updateTaskConf()">
+            	保 存 <i class="m-icon-swapright m-icon-white"></i>
+            </button> 
+          </div>
+       </div>
+	</div>
+</form>

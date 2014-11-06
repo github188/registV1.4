@@ -1,0 +1,17 @@
+<html>
+	<body>
+		<form action="http://192.168.4.150:80/regist/outerDevice/index" method="post">
+			接入服务器:<input type="text" name="AccessIP" value="192.168.2.118"/><br/>
+			平台ID:<input type="text" name="PlatformID" value="420100"/><br/>
+			目标平台ID:<input type="text" name="ParentCmsId" value="420000"/><br/>
+			内容:<textArea name="resource" style="width:600px;height:300px;">
+					<Message Version="1.0" EventType="Request_NotifyResource" Token="身份认证信息">
+						 <ItemList Type="Platform" ID="421099">
+						 	<Item Method="Add" Type="Organ" ID="10000000000000000001" Name="外县平台机构1" />
+						 </ItemList>
+					 </Message>
+				</textArea>
+			<input type="submit" />
+		</form>
+	</body>
+</html>

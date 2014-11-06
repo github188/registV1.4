@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="GBK" ?>
+<general_camera_vic subType="$device.type" id="$device.id" name="$!device.name"
+    installLocation=""
+    note=""
+    naming="$device.naming"
+    #if($device.permission.subString(2)=="1") hasPan="true" #else hasPan="false" #end
+    ptzDecodeType="HK"
+    videoFormat="MPEG4"
+    storeType="0/1/2"
+    storeCycle="7"
+    storePlanHourFlag="010100001001001010010101"
+    remoteStoreCycle="7"
+    remoteStorePlanHourFlag="010100001001001010010101"
+    frameRate="25"
+    maxBps="0"
+    brightness="0"
+    contrast="0"
+    saturation="0"
+    hue="0"
+    modelId="0000000000000000000000000000001"
+    modelName="SONY"
+    currentImageQualityLevelId="0000000000000000000000000000003"
+    currentImageQualityLevelName="较好"
+  	nat="false"	
+  	IsNAT="false"  
+  	MainStream="true"	 
+  	#if($server.streamSupport.substring(0,1) == "1") SubStream1="true" #else SubStream1="false" #end
+  	#if($server.streamSupport.substring(1,2) == "1") SubStream2="true" #else SubStream2="false" #end
+  	#if($server.streamSupport.substring(2) == "1") SubStream3="true" #else SubStream3="false" #end
+  	Video2= "false"
+	standardId="11111111111111111111"
+	x="100"
+	y="100"
+	z="500"
+	/>

@@ -1,0 +1,4 @@
+<option value="VIC" #if($!r.resourceType=="VIC")selected="true"#end>普通摄像头</option>
+<option value="IPVIC" #if($!r.resourceType=="IPVIC")selected="true"#end>IP摄像头</option>
+<option value="AIC" #if($!r.resourceType=="AIC")selected="true"#end>报警输入</option>
+<option value="ORGAN" #if($!r.resourceType=="ORGAN")selected="true"#end>机构</option>

@@ -1,0 +1,8 @@
+<html>
+	<body>
+		<form action="http://localhost:8080/regist/home/getOuterPlatforms" method="post">
+			<input type="text" name="userNaming" value="0000000000200000000000000350002:192.168.5.79:420000">
+			<input type="submit" />
+		</form>
+	</body>
+</html>

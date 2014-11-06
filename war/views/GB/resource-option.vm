@@ -1,0 +1,6 @@
+<option value="VIC" #if($!resourceType=="VIC")selected="true"#end>普通摄像头</option>
+<option value="IPVIC" #if($!resourceType=="IPVIC")selected="true"#end>IP摄像头</option>
+<option value="AIC" #if($!resourceType=="AIC")selected="true"#end>报警输入</option>
+<option value="VIS" #if($!resourceType=="VIS")selected="true"#end>VIS</option>
+<option value="DVR" #if($!resourceType=="DVR")selected="true"#end>DVR</option>
+<option value="ORGAN" #if($!resourceType=="ORGAN")selected="true"#end>机构</option>

@@ -1,0 +1,14 @@
+#parse("/views/user-table.vm")
+<div style="float:left">
+
+#if($authorType=="secondGranted")
+	<input type="button" onclick="showSelectedResource();" value="上一步"/>
+	<input type="button" id="confirmGranted" onclick="selected('resourceList');confirmGrants('$position')" value="授权确认"/>
+#else
+	<input type="button" onclick="AT1QueryGrantedList();" value="上一步"/>
+	<input type="button" onclick="selected('resourceList');AT1QueryResource();" value="下一步"/>
+#end
+</div>
+<div id="alertMsg" class="alertMsg" style="clear:right;height:20px;">
+</div>
+#parse("/views/granted-form.vm")

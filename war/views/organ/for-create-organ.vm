@@ -1,0 +1,17 @@
+<form id="createOrganForm">
+	<input type="hidden" name="organ.cmsId" value="$cmsId"/>
+	<input type="hidden" name="parentId" value="$!parentId"/>
+	<div class="title">#if($name) $name 创建子机构 #else 创建根机构#end</div>
+	<div style="width:70%;text-align:center;">
+	<table width="100%" cellpadding="1" cellspacing="1" border="0">
+		
+		<tr>
+			<td style="text-align:right"> 机构名称:</td>
+			<td style="text-align:left"><input type="text" id="organName" name="organ.name" style="width:170px;"/><span style="color:red">*</span></td>
+		</tr>
+	</table>
+    <div style="width:300px;"><input type="button" id="createOrganBtn" value="确定" onclick="createOrgan();" /></div>
+	</div>
+</form>
+<div id="alertMsg" class="alertMsg" style="clear:right;height:20px;margin-left:250px;">
+</div>

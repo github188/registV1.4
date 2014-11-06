@@ -1,0 +1,9 @@
+#parse("/views/resource-input.vm")
+<input type="hidden" id="userIds" name="r.userIds"  value="$!r.userIds"/>
+<input type="hidden" id="roleIds" name="r.roleIds"  value="$!r.roleIds"/>
+
+<input type="hidden" id="obtainCmsId" name="r.obtainCmsId" value="$!r.obtainCmsId"/>
+<input type="hidden" id="organId" name="r.organId" value="all"/>
+<input type="hidden" id="ownerOrganId" name="r.ownerOrganId" value="all"/>
+
+<input type="hidden" id="authorType" name="r.authorType" value="secondGranted"/>

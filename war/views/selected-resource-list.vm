@@ -1,0 +1,31 @@
+#*
+#set($position="resourceList")
+#set($action="$ctxpath/device/querySelectedResource")
+#set($selected=true)
+#set($selectedFunction="selected('$position')")
+#set($selectedResource="selectedResource")
+#parse("/views/granted-device.vm")
+*#
+
+#set($position="resourceList")
+#set($action="$ctxpath/granted/querySelectedResource")
+#set($selected=true)
+#set($selectedFunction="selected('$position')")
+#set($selectedResource="selectedResource")
+#if($r.resourceType=="ORGAN")
+#parse("/views/organ-table.vm")	
+#else
+#parse("/views/device-table.vm")
+#end
+<div style="float:left">
+	#if($r.authorType=="firstGranted")
+		<input type="button" id="AT1LastStep" onclick="selected('$position');AT1QueryResource();" value="上一步"/>
+		<input type="button" id="confirmGranted" onclick="selected('resourceList');confirmGrants('$position','$r.authorType')" value="授权确认"/>
+	#else
+		<input type="button" onclick="selected('$position'); AT2QueryResource();" value="上一步"/>
+		<input type="button" onclick="selected('$position'); AT2QueryGrantedList();" value="下一步"/>	
+	#end
+</div>
+<div id="alertMsg" class="alertMsg" style="clear:right;height:20px;">
+</div>
+#parse("/views/granted-form.vm")

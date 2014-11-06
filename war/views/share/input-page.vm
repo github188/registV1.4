@@ -1,0 +1,13 @@
+#parse("/views/resource-input-page.vm")
+<input type="hidden" id="namePage" name="r.name" value="$!r.name"/>
+<input type="hidden" id="namePage" name="r.organId" value="$!r.organId"/>
+<input type="hidden" id="cmsIdPage" name="r.cmsId" value="$!r.cmsId"/>
+
+<input type="hidden" id="ownerOrganIdPage" name="r.ownerOrganId" value="all"/>
+<input type="hidden" id="platformIdsPage" name="r.platformIds" value="$!r.platformIds"/>
+<input type="hidden" id="platformIdPage" name="r.platformCmsId" value="$!r.platformCmsId"/>
+
+<input type="hidden" name="r.resourceType" value="$!r.resourceType"/>
+<input type="hidden" name="r.platformType" value="$!r.platformType"/>
+<input type="hidden" name="r.rootOrgan" value="$!r.rootOrgan"/>
+<input type="hidden" id="currentResourceType" name="r.currentResourceType" value="$!r.resourceType"/>

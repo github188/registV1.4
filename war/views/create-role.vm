@@ -1,0 +1,19 @@
+<form id="createRoleForm">
+	<div class="title">角色创建</div>
+	<div style="width:70%;text-align:center;">
+	<table width="100%" cellpadding="1" cellspacing="1" border="0">
+		<tr>
+			<td style="text-align:right"> 角色名称:</td>
+			<td style="text-align:left"><input type="text" id="roleName" name="role.name" style="width:170px;"/></td>
+		</tr>
+		<tr>
+			<td style="text-align:right">备注:</td>
+			<td style="text-align:left"><input type="text" name="role.note" style="width:170px;"/></td>
+		</tr>
+		<tr>
+			<td style="text-align:right">&nbsp;</td>
+			<td style="text-align:left"><input type="button" value="确定" onclick="createRole();"/></td>
+		</tr>
+	</table>
+	</div>
+</form>

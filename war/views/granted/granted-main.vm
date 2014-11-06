@@ -1,0 +1,120 @@
+<div class="tabbable-custom nav-justified" style="margin-top:25px;">
+                        <ul class="nav nav-tabs">
+                           <li class="active"><a href="#batchGranted" data-toggle="tab">批量权限授予</a></li>
+                           <li><a href="#updateAuthorization" data-toggle="tab" onclick="UpdateGranted.showAuthorizationMain()">权限更改</a></li>
+                           <li><a href="#roleManage" data-toggle="tab" onclick="roleMain()" >角色管理</a></li>
+                        </ul>
+<div class="tab-content">
+<div id="batchGranted" class="tab-pane active" style="min-height:600px;">	
+	<div class="row"  id="form_wizard_1">
+        <div class="col-md-12">
+               <h3 class="form-section"><i class="icon-reorder"></i> 批量权限授予 - <span class="step-title">步骤1/3</span></h3>
+                            <div class="form-wizard">
+                               <div class="form-body">
+                                              <ul class="nav nav-pills nav-justified steps">
+                                                 <li>
+                                                    <a href="#tab1" data-toggle="tab" class="step">
+                                                    <span class="number">1</span>
+                                                    <span class="desc"><i class="icon-ok"></i> 选择用户或角色</span>   
+                                                    </a>
+                                                 </li>
+                                                 <li>
+                                                    <a href="#tab2" data-toggle="tab" class="step">
+                                                    <span class="number">2</span>
+                                                    <span class="desc"><i class="icon-ok"></i>选择机构或设备</span>   
+                                                    </a>
+                                                 </li>
+                                                 <li>
+                                                    <a href="#tab3" data-toggle="tab" class="step active">
+                                                    <span class="number">3</span>
+                                                    <span class="desc"><i class="icon-ok"></i>授权确认</span>   
+                                                    </a>
+                                                 </li>
+                                              </ul>
+                                              <div id="bar" class="progress progress-striped" role="progressbar">
+                                                 <div class="progress-bar progress-bar-success"></div>
+                                              </div>
+                                              <div class="tab-content">
+                                                     <div class="alert alert-danger display-none">
+                                                        <button class="close" data-dismiss="alert"></button>
+                                                        You have some form errors. Please check below.
+                                                     </div>
+                                                     <div class="alert alert-success display-none">
+                                                        <button class="close" data-dismiss="alert"></button>
+                                                        Your form validation is successful!
+                                                     </div>
+                                                     <div class="tab-pane active" id="tab1">
+                        									<form id="grantedForm">
+                                                            	<input type="hidden" id="organId" name="organId" value=""/>
+                                                            	<div class="input-group">
+                                                            			<a class="organ"><input type="text" style="box-shadow: inset 0 0 4px #eee; width: 120px; margin: 0; padding: 6px 12px; border-radius: 4px; border: 1px solid silver; font-size: 1.1em;" onclick="getUserOrganTree()" name="organName" readonly="true" class="form-control" style="width:180px;" placeholder="所属机构"/></a>
+                                                            			&nbsp;<select name="grantedType" class="form-control input-small" id="grantedType" style="width:120px;" onchange="getGrantedList();">
+                                                            					<option value="USER">用户</option>
+                                                            					<option value="ROLE">角色</option>
+                                                            				</select>
+                                                            			&nbsp;<input type="text" name="name" value="$!name" style="box-shadow: inset 0 0 4px #eee; width: 120px; margin: 0; padding: 6px 12px; border-radius: 4px; border: 1px solid silver; font-size: 1.1em;" placeholder="名称"  onkeydown="if(event.keyCode==13) { getGrantedList();return false}"/>
+                                                            			&nbsp;<a class="btn btn-success" href="javascript:;" onclick="getGrantedList()"><i class="icon-search"></i>查询</a>
+                                                            	</div>
+                                                            </form>
+                                                            <div class="row" style="margin-top:2px;">
+                                                                <div class="col-md-12">
+                                                            		<div id="grantedList">
+                                                                    	#parse("/views/granted/granted-list.vm")
+                                                                    </div>
+                                                            	</div>
+                                                            </div>
+            										</div>
+                                                     <div class="tab-pane active" id="tab2">
+														<form id="resourceForm">
+                        									<input type="hidden"  name="platformId" value=""/>
+                                                            	<div class="input-group">
+                                                                        &nbsp;<span><input type="text" name="cmsName" style="box-shadow: inset 0 0 4px #eee; width: 120px; margin: 0; padding: 6px 12px; border-radius: 4px; border: 1px solid silver; font-size: 1.1em;" onclick="getResourcePlatformTree()"  readonly="true" placeholder="所属平台"/></span>
+                                                            			&nbsp;<span><select class="form-control input-small" name="resourceType" style="width:185px;" onchange="getResourceList();">
+                                                            					<option value="platform">平台</option>
+                                                            					<option value="root">根机构</option>
+                                                            					<option value="organ">所有机构</option>
+                                                            					<option value="device">所有设备</option>
+                                                            					<option value="VIC">普通摄像头</option>
+                                                            					<option value="IPVIC">ip摄像头</option>
+                                                            					<option value="AIC">报警输入</option>
+                                                            				</select>
+                                                                        </span>
+                                                            			&nbsp;<input type="text" name="name" value="$!name" style="box-shadow: inset 0 0 4px #eee; width: 120px; margin: 0; padding: 6px 12px; border-radius: 4px; border: 1px solid silver; font-size: 1.1em;" placeholder="资源名称"  onkeydown="if(event.keyCode==13) { getResourceList();return false}"/>
+                                                            			&nbsp;<a class="btn btn-success" href="javascript:;" onclick="getResourceList()"><i class="icon-search"></i>查询</a>
+																		<span><input type="text" id="select_permission" class="form-control select2" value="实时,历史,云台,抓拍,预置位"/></span>
+																		
+																</div>
+																<div class="row" style="margin-top:2px;">
+                                                                <div class="col-md-12">
+                                                            		<div id="resourceList"></div>
+                                                            	</div>
+                                                            </div>
+                                                        </form>
+            										</div>
+													
+													<div class="tab-pane active" id="tab3">
+														
+            										</div>
+            									</div>
+            							   </div>
+            							</div>
+                      </div>
+		     </div>
+	    </div>
+        <div id="updateAuthorization" class="tab-pane" style="min-height:600px;">
+            <div id="authorizationMain">
+			</div>
+		</div>
+        <div id="roleManage" class="tab-pane" style="min-height:600px;">
+            <div id="roleMain">
+			</div>
+		</div>
+	</div>
+</div>
+  <script>
+      jQuery(document).ready(function() {       
+         App.init();
+         FormWizard.init();
+      });
+   </script>
+										

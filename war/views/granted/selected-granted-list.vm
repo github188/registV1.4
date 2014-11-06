@@ -1,0 +1,33 @@
+#if($userList)
+<table class="table table-striped  table-bordered table-hover">
+	<thead>
+			<tr>
+    			<th style="width:50%">用户名称</th>
+    			<th>所属机构</th>
+			</tr>
+    </thead>
+	<tbody id="selectedUserList">
+    #foreach($granted in $userList)
+	<tr class="odd gradeX">
+		<td><div>$granted.logonName</div></td>		
+		<td>$granted.organ.name</td>		
+	</tr>
+	#end
+    </tbody>
+</table>
+#end
+#if($roleList)
+	<table class="table table-striped  table-bordered table-hover">
+		<tr>
+			<th>角色名称</th>
+		</tr>
+		<tbody id="selectedRoleList">
+	    #foreach($granted in $roleList)
+		<tr class="odd gradeX">
+			<td>$granted.name</td>		
+		</tr>
+		#end
+        </tbody>
+</table>
+#end
+#parse("/views/static/views/page.vm")

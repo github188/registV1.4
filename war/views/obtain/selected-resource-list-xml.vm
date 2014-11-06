@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<page currentPage="$page.currentPage" recordCount="$page.recordCount"/>
+	#foreach($resource in $resources)
+		<resource 
+			id="$resource.id" 
+			name="$resource.name" 
+		#if($resource.type=="ORGAN") 
+			parentOrgan="$resource.parent.name"
+		#else
+			parentOrgan="$resource.organ.name"
+		#end
+			item="$idsMap.get($resource.id)"
+			permission="$permissionMap.get($resource.id)"
+			cmsId="$resource.cmsId"
+			organPath="$resource.organPath"/> 
+	#end
+</resources>

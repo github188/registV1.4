@@ -1,0 +1,76 @@
+<div id="addOracleModal" class="modal fade" tabindex="-1" data-width="400">
+        <div class="modal-dialog">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                 <h4 class="modal-title">oracle信息添加</h4>
+              </div>
+              <div class="modal-body">
+                 <div class="row">
+                    <div class="col-md-12">
+						<form id="addOracleForm" class="form-horizontal" role="form">
+                    	<div class="form-body">
+                           <div class="form-group">
+                              <label  class="col-md-3 control-label">平台编号<span class="required">*</span></label>
+                              <div class="col-md-9">
+                    			 <input type="text" name="cmsId" value="" class="form-control" />
+                              </div>
+                    		</div>
+                           <div class="form-group">
+                              <label  class="col-md-3 control-label">平台名称<span class="required">*</span></label>
+                              <div class="col-md-9">
+                    			 <input type="text" name="name" value="" class="form-control" />
+                              </div>
+                    		</div>
+                           <div class="form-group">
+                              <label  class="col-md-3 control-label">同步模块share url<span class="required">*</span></label>
+                              <div class="col-md-9">
+                    			 <input type="text" name="share" value="" class="form-control" />
+                              </div>
+                    		</div>
+                           <div class="form-group">
+                              <label  class="col-md-3 control-label">数据库用户名<span class="required">*</span></label>
+                              <div class="col-md-9">
+                    			 <input type="text" name="user" value="" class="form-control" />
+                              </div>
+                    		</div>
+                           <div class="form-group">
+                              <label  class="col-md-3 control-label">数据库密码<span class="required">*</span></label>
+                              <div class="col-md-9">
+                    			 <input type="password" name="password" value="" class="form-control" />
+                              </div>
+                    		</div>
+                    		<div class="form-group">
+                              <label  class="col-md-3 control-label">数据库IP:PORT<span class="required">*</span></label>
+                              <div class="col-md-9">
+                    			 <input type="text" name="IPPORT" value="" class="form-control" />
+                              </div>
+                    		</div>
+							<div class="form-group">
+                              <label  class="col-md-3 control-label">sid<span class="required">*</span></label>
+                              <div class="col-md-9">
+                    			 <input type="text"  name="sid" class="form-control" value=""/>
+                              </div>
+                    		</div>
+                    	    <div class="form-group">
+                              <div class="col-md-12" style="text-align:center;">
+                    			 <button type="button" class="btn-success" onclick="InitConfig.addOracleConf()">
+                                	保 存 <i class="m-icon-swapright"></i>
+                                </button> 
+								<button type="button" class="btn-success" onclick="InitConfig.testOracleConf()">
+                                	测试 <i class="fa fa-angle-double-right"></i>
+                                </button> 
+                              </div>
+                           </div>
+                    	</div>
+						<div id='cmsIdValid' style="display: none;color:red">
+                            平台编号已经存在
+                        </div>
+						<div id='testOracle' style="display: none;color:red"></div>
+                    </form>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+</div>

@@ -1,0 +1,5 @@
+[
+  {% for organ in organs %}
+  	{ "id" : "{{organ.id}}", "text" : "{{organ.name}}", "children" : {% if organ.children|length == 0 %} false {%else%} true {%endif%}, "type" : "{{organ.myType}}" } {% if not loop.last %},{% endif%}
+  {% endfor %}
+]

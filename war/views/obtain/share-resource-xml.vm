@@ -1,0 +1,9 @@
+<resources>
+	#foreach($resource in $shares)
+		<resource id="$resource.resourceId" 
+				  cmsId="$resource.resourceCmsId"
+				  type="$resource.resourceType"
+				  item="$resource.item" 
+				  organPath="$resource.organPath"/>
+	#end
+</resources>

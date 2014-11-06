@@ -1,0 +1,33 @@
+<div class="title" id="title">${platformName} #if($type=="local")资源信息统计#else设备获取#end</div>
+<table width="100%" border="0" cellpadding="1" cellspacing="1">
+		<tr class="tdTitle">
+			<td style="width:30%">资源名称</td>
+			<td>总数</td>
+	    </tr>
+	    <tr class="tdTwo">
+			<td style="width:30%">机构</td>
+			<td>$!statisticBean.organs</td>
+		</tr>
+	    <tr class="tdOne">
+			<td style="width:30%">服务器</td>
+			<td>$!statisticBean.servers</td>
+		</tr>
+		<tr class="tdTwo">
+			<td style="width:30%">普通摄像头</td>
+			<td>$!statisticBean.vics</td>
+		</tr>
+		<tr class="tdOne">
+			<td style="width:30%">IP摄像头</td>
+			<td>$!statisticBean.ipvics</td>
+		</tr>
+		<tr class="tdTwo">
+			<td style="width:30%">报警输入</td>
+			<td>$!statisticBean.aics</td>
+		</tr>
+	</table>
+<div id="alertMsg" class="alertMsg" style="clear:right;	position:relative;top:-50px;left:-50px;z-index:1000">
+</div>
+<script>
+	stopInpect($!statisticBean.all);
+	getDeviceByServer($!statisticBean.servers,'$platformId');
+</script>	

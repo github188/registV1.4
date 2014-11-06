@@ -1,0 +1,21 @@
+<table id="deviceList" class="table table-bordered table-hover with-check">
+	 <thead>
+         <tr>
+			 <th style="width:10%"><input type="checkbox" onclick="setChecked('deviceList')"/></th>
+             <th>设备名称</th>
+             <th>所在机构</th>
+          </tr>
+       </thead>
+	   <tbody>
+        	#foreach($gbDevice in $deviceList)
+        	<tr>
+        		<td><input type="checkbox"  value="$gbDevice.id"/></td>
+        		<td style="cursor:pointer">$gbDevice.device.name</td>
+        		<td>$gbDevice.device.organ.name</td>
+        	</tr>
+        	#end
+       </tbody>
+</table>
+<div class="input-group"><a href="javascript:;" class="btn btn-success" onclick="selectAll('deviceList');">全选</a>&nbsp;<a href="javascript:;" class="btn btn-success" onclick="unselect('deviceList')">反选</a>&nbsp;</div>
+#parse("/views/static/views/page.vm")
+

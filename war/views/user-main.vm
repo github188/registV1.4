@@ -1,0 +1,21 @@
+<div id="grantedLeft" class="userList">
+	<div class="title">用户列表</div>
+	<div>
+	<form id="grantedForm">
+		<input type="hidden" id="ownerOrganId" name="ownerOrganId" value="$!ownerOrganId"/>
+		<input type="hidden" id="selectOrganFuncton" value="queryUsersByOrgan"/>
+		<div id="theirOrgan">所在机构:<input type="text" name="ownerOrganName" id="ownerOrganName" value="所有机构" style="width:120px;" onclick="showOptions('ownerOrganName','ownerOrganOptions','grantedForm');"  onkeyup="return organKeyDownEvent(event,'ownerOrganName','ownerOrganOptions','grantedForm');" onblur="hiddenOrgans(event,'options','setOrganId(\'grantedForm\',\'getOwnerOrganIdByName\',\'ownerOrganId\',\'ownerOrganName\')');"/></div> 
+		<div style="clear:both;">
+		用户名称:<input type="text" name="name" value="$!user.logonName" style="width:120px;" 	onkeydown="if(event.keyCode==13) { queryUser(); return false}"/>
+			  <input type="button" value="查询" onclick="queryUser();"/>
+		</div>
+	</form>
+	</div>
+	<div id="userList">
+		#parse("/views/user-list.vm")
+	</div>	
+</div>
+<div id="grantedRight" class="grantedPermission">
+	
+</div>
+<div id="ownerOrganTreeArea" class="organTree" onblur="hiddenOrgans(event,'ownerOrganTreeArea');"></div>

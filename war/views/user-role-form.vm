@@ -1,0 +1,26 @@
+<div style="margin-buttom:2px;">
+	<div class="title">用户: $granted.logonName  权限列表</div>
+	<form id="userPermissionForm">
+		<input type="hidden" name="userId" value="$granted.id"/>
+		<input type="hidden" name="first" value="false"/>
+		<input type="hidden" id="roleIds" name="roleIds" value="$!roleIds"/>
+		<input type="hidden" id="type" name="type" value="ROLE"/>
+		<div style="float:left;border:0px solid red;width:99%;text-align:left;">
+		<table style="width: 95%;text-align: left;">
+			<tr>
+			   	<td align="left">名称:
+			   		<input type="text" name="name"  style="width:150px;" value=""  onkeydown="if(event.keyCode==13) { queryRolesByUserViaPost('resourceList','type'); return false}"/>
+					<input type="button" value="查询" onclick="queryRolesByUserViaPost('resourceList','type');"/>
+					<input type="button" onclick="deleteUserRolesById('resourceList','type')" value="修改"/>
+				</td>
+			</tr>
+		</table>
+		</div>
+	</form>
+</div>
+<div>
+<div id="resourceList" class="resourceList">
+#parse("/views/user-role-list.vm")
+</div>
+<div id="alertMsg" class="alertMsg" style="clear:right;height:20px;">
+</div>

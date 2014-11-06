@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<toolbox>
+	<xhtml>true</xhtml>
+
+	<!-- Example of formatting the "current" date: $date -> Oct 19, 2003 9:54:50 
+		PM $date.long -> October 19, 2003 9:54:50 PM PDT $date.medium_time -> 9:54:50 
+		PM $date.full_date -> Sunday, October 19, 2003 $date.get('default','short') 
+		-> Oct 19, 2003 9:54 PM $date.get('yyyy-M-d H:m:s') -> 2003-10-19 21:54:50 
+		Example of formatting an arbitrary date: $myDate -> Tue Oct 07 03:14:50 PDT 
+		2003 $date.format('medium',$myDate) -> Oct 7, 2003 3:14:50 AM -->
+	<tool>
+		<key>date</key>
+		<scope>application</scope>
+		<class>org.apache.velocity.tools.generic.DateTool
+		</class>
+		<parameter name="format" value="yyyy-MM-dd" />
+	</tool>
+
+
+	<!-- Tool for working with Lists and arrays in Velocity templates. It provides 
+		a method to get and set specified elements. Also provides methods to perform 
+		the following actions to Lists and arrays: Check if it is empty. Check if 
+		it contains a certain element. Example uses: $primes -> new int[] {2, 3, 
+		5, 7} $list.size($primes) -> 4 $list.get($primes, 2) -> 5 $list.set($primes, 
+		2, 1) -> (primes[2] becomes 1) $list.get($primes, 2) -> 1 $list.isEmpty($primes) 
+		-> false $list.contains($primes, 7) -> true -->
+	<tool>
+		<key>list</key>
+		<scope>application</scope>
+		<class>org.apache.velocity.tools.generic.ListTool
+		</class>
+	</tool>
+
+
+	<!-- SortTool allows a user to sort a collection (or array, iterator, etc) 
+		on any arbitary set of properties exposed by the objects contained within 
+		the collection. The sort tool is specifically designed to use within a #foreach 
+		but you may find other uses for it. The sort tool can handle all of the collection 
+		types supported by #foreach and the same constraints apply as well as the 
+		following. Every object in the collection must support the set of properties 
+		selected to sort on. Each property which is to be sorted on must return one 
+		of the follow: Primitive type: e.g. int, char, long etc Standard Object: 
+		e.g. String, Integer, Long etc Object which implements the Comparable interface. 
+		During the sort operation all properties are compared by calling compareTo() 
+		with the exception of Strings for which compareToIgnoreCase() is called. 
+		The sort is performed by calling Collections.sort() after marshalling the 
+		collection to sort into an appropriate collection type. The original collection 
+		will not be re-ordered; a new list containing the sorted elements will always 
+		be returned. The tool is used as follows: Single Property Sort #foreach($obj 
+		in $sorter.sort($objects, "name")) $obj.name Ordinal= $obj.ordinal #end End 
+		Multiple Property Sort #foreach($obj in $sorter.sort($objects, ["name", "ordinal"])) 
+		$obj.name, $obj.ordinal #end End The sort method takes two parameters a collection 
+		and a property name or an array of property names. The property names and 
+		corresponding methods must conform to java bean standards since commons-beanutils 
+		is used to extract the property values. By default the sort tool sorts ascending, 
+		you can override this by adding a sort type suffix to any property name. 
+		The supported suffixes are: For ascending :asc For descending :desc Example 
+		#foreach($obj in $sorter.sort($objects, ["name:asc", "ordinal:desc"])) $obj.name, 
+		$obj.ordinal #end This will sort first by Name in ascending order and then 
+		by Ordinal in descending order, of course you could have left the :asc off 
+		of the 'Name' property as ascending is always the default. -->
+	<tool>
+		<key>sorter</key>
+		<scope>application</scope>
+		<class>org.apache.velocity.tools.generic.SortTool
+		</class>
+	</tool>
+
+	<!-- template... #set( $color = $alternator.auto('red', 'blue') ) ## use 
+		manual alternation for this one #set( $style = $alternator.manual(['hip','fly','groovy']) 
+		) #foreach( $i in [1..5] ) Number $i is $color and $style. I dig $style.next 
+		numbers. #end output... Number 1 is red and hip. I dig hip numbers. Number 
+		2 is blue and fly. I dig fly numbers. Number 3 is red and groovy. I dig groovy 
+		numbers. Number 4 is blue and hip. I dig hip numbers. Number 5 is red and 
+		fly. I dig fly numbers. -->
+	<tool>
+		<key>alternator</key>
+		<scope>application</scope>
+		<class>org.apache.velocity.tools.generic.AlternatorTool
+		</class>
+		<parameter name="auto-alternate" value="true" />
+	</tool>
+
+	<!-- Example uses: $java -> He didn't say, "Stop!" $esc.java($java) -> He 
+		didn't say, \"Stop!\" $javascript -> He didn't say, "Stop!" $esc.javascript($javascript) 
+		-> He didn\'t say, \"Stop!\" $html -> "bread" & "butter" $esc.html($html) 
+		-> &quot;bread&quot; &amp; &quot;butter&quot; $xml -> "bread" & "butter" 
+		$esc.xml($xml) -> &quot;bread&quot; &amp; &quot;butter&quot; $sql -> McHale's 
+		Navy $esc.sql($sql) -> McHale''s Navy $esc.url($parameterName) -> hello+here+%26+there 
+		$esc.dollar -> $ $esc.d -> $ $esc.hash -> # $esc.h -> # $esc.backslash -> 
+		\ $esc.b -> \ $esc.quote -> " $esc.q -> " $esc.singleQuote -> ' $esc.s -> 
+		' $esc.exclamation -> ! $esc.e -> ! -->
+	<tool>
+		<key>esc</key>
+		<scope>application</scope>
+		<class>org.apache.velocity.tools.generic.EscapeTool
+		</class>
+	</tool>
+
+	<!-- $import.read("http://velocity.apache.org/tools/devel/") $import.read("/wookie.jsp") -->
+	<tool>
+		<key>import</key>
+		<scope>request</scope>
+		<class>org.apache.velocity.tools.view.tools.ImportTool</class>
+	</tool>
+</toolbox>

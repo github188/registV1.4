@@ -1,0 +1,47 @@
+<!--breadcrumbs-->
+<div id="content-header">
+	<div id="breadcrumb">
+		<a href="index.html" title="Go to Home" class="tip-bottom"><i
+			class="icon-home"></i> 主页</a>
+	</div>
+</div>
+<!--End-breadcrumbs-->
+
+<!--Action boxes-->
+<div class="container-fluid">
+	<!--End-Action boxes-->
+
+	<!--Chart-box-->
+	<div class="row-fluid"></div>
+	<!--End-Chart-box-->
+	<div class="row-fluid">
+		<div class="widget-box">
+			<div class="widget-title">
+				<ul class="nav nav-tabs">
+					<li class="active"><a data-toggle="tab" href="#tab1">信息查询1</a></li>
+					<li><a data-toggle="tab" href="#tab2">信息查询2</a></li>
+					<li><a data-toggle="tab" href="#tab3">信息查询3</a></li>
+				</ul>
+			</div>
+			<div class="widget-content tab-content">
+				<div id="tab1" class="tab-pane active">
+					sdfsf
+				</div>
+				<div id="tab2" class="tab-pane">
+					<img src="img/demo/demo-image2.jpg" alt="demo-image" />
+					<p>And is full of waffle to It has multiple paragraphs and is
+						full of waffle to pad out the comment. Usually, you just wish
+						these sorts of comments would come to an end.multiple paragraphs
+						and is full of waffle to pad out the comment.</p>
+				</div>
+				<div id="tab3" class="tab-pane">
+					<p>And is full of waffle to It has multiple paragraphs and is
+						full of waffle to pad out the comment. Usually, you just wish
+						these sorts of comments would come to an end.multiple paragraphs
+						and is full of waffle to pad out the comment.</p>
+					<img src="img/demo/demo-image3.jpg" alt="demo-image" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,3 @@
+<script>
+	$("body").html("<center>用户长时间未操作,为保证信息安全,请重新刷新</center>");
+</script>

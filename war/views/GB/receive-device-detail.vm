@@ -1,0 +1,52 @@
+<form id="receiveDetailForm" class="form-horizontal" role="form">
+	<div class="form-body">
+       <div class="form-group">
+          <label  class="col-md-3 control-label">计划接收总数</label>
+          <div class="col-md-9">
+			 <input type="text" name="sumNum" value="" class="form-control" readonly="true"/>
+          </div>
+		</div>
+       <div class="form-group">
+          <label  class="col-md-3 control-label">目前收到总数</label>
+          <div class="col-md-9">
+			 <input type="text" name="currentSumNum" value="" class="form-control" readonly="true"/>
+          </div>
+		</div>
+       <div class="form-group">
+          <label  class="col-md-3 control-label">机构入库总数</label>
+          <div class="col-md-9">
+			 <input type="text" name="organ" value="" class="form-control" readonly="true"/>
+          </div>
+		</div>
+       <div class="form-group">
+          <label  class="col-md-3 control-label">服务器入库总数</label>
+          <div class="col-md-9">
+			 <input type="text" name="server" value="" class="form-control" readonly="true"/>
+          </div>
+		</div>
+       <div class="form-group">
+          <label  class="col-md-3 control-label">vic入库总数</label>
+          <div class="col-md-9">
+			 <input type="text" name="vic" value="" class="form-control" readonly="true"/>
+          </div>
+		</div>
+       <div class="form-group">
+          <label  class="col-md-3 control-label">ipvic入库总数</label>
+          <div class="col-md-9">
+			 <input type="text" name="ipvic" value="" class="form-control" readonly="true" />
+          </div>
+		</div>
+		<div class="form-group">
+          <label  class="col-md-3 control-label">aic入库总数</label>
+          <div class="col-md-9">
+			 <input type="text" name="aic" readonly="true" class="form-control" />
+          </div>
+		</div>
+		<div class="form-group">
+          <label  class="col-md-3 control-label">入库合计</label>
+          <div class="col-md-9">
+			 <input type="text" name="total" value="" readonly="true" class="form-control" />
+          </div>
+		</div>
+	</div>
+</form>

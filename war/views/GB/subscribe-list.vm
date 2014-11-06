@@ -1,0 +1,55 @@
+<table width="100%" border="0" cellpadding="1" cellspacing="1" id="${position}T">
+	<tr class="tdTitle">
+		<td style="width:120px;">订阅平台</td>
+		<td style="width:100px;">订阅DeviceID</td>
+		<td style="width:80px;">订阅状态</td>
+		<td style="width:160px;">操作</td>
+    </tr>
+    #foreach($subscribe in $subscribeList)
+    #parse("/views/r-s.vm")
+	<tr class="$class">
+		<td>$platformMap.get($subscribe.toPlatformId).name</td>
+		<td>$subscribe.deviceId</td>
+		<td>#if($subscribe.status=="NORMAL")
+						<span style="color:blue">正常订阅中</span>
+					#else
+						<span style="color:black">订阅已取消</span>
+					#end</td>	
+		<td>#if($subscribe.status=="CANCEL")<input type="button" id="subscribeDevices" onclick="subscribeGBOuterDeviceBycmsId('$subscribe.deviceId','$subscribe.toPlatformId','$subscribe.period',$platformCmsId)", value="重新订阅"/>
+			#elseif($subscribe.status=="NORMAL")<input type="button" id="subscribeDevices" onclick="subscribeGBOuterDeviceBycmsId('$subscribe.deviceId','$subscribe.toPlatformId','0',$platformCmsId)", value="取消订阅"/>#end
+			<input type="button" id="subscribeDevices" onclick="subscribeGBOuterDeviceBycmsId('$subscribe.deviceId','$subscribe.toPlatformId','-1',$platformCmsId)", value="删除订阅"/>
+</td>		
+	</tr>
+	#end
+</table>
+<input type="button" id="addSubscibeBtn"value="新增订阅" onclick="forAddSubscribe()"/>
+<div id="subscribeForm">
+	<form id="createSubscribeForm">
+	<input type="hidden" name="ownerId" value="$ownerId"/>
+	<div style="width:70%;text-align:center;">
+	<table width="100%" cellpadding="1" cellspacing="1" border="0">
+		
+		<tr>
+			<td style="text-align:right">下级国标平台:</td>
+			<td style="text-align:left">
+				<select name="toPlatformId" style="width:170px">
+					#foreach($platform in $platformMap.values())
+                        <option value="$platform.cmsId">$platform.name</option>
+					#end
+                </select><span style="color:red">*</span></td>
+		</tr>
+		<tr>
+			<td style="text-align:right">接受订阅的DeviceID:</td>
+			<td style="text-align:left"><input type="text" name="deviceId" style="width:170px;"/><span style="color:red">*</span></td>
+		</tr>
+			
+		</tr>
+		<tr>
+			<td style="text-align:right">超时时间:</td>
+			<td style="text-align:left"><input name="expirePeriod" style="width:170px;"/><span style="color:red">*(提示:单位为秒)</span></td>
+		</tr>
+	</table>
+	<input type="button" value="订阅" onclick="addSubscribe()" />
+	</div>
+	</form>
+</div>

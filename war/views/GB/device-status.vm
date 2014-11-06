@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<Message>
+    <result msg="$msg"/>
+	#foreach($device in $deviceList)
+    <Device ID="$device.deviceId"  Naming="$device.naming"  IP=""  Type="Channel"/>
+	#end
+</Message>

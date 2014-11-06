@@ -1,0 +1,4 @@
+#parse("views/resource-input.vm")
+<input type="hidden" id="platformIds" name="r.platformIds" value="$!r.platformIds"/>
+<input type="hidden" id="cmsId" name="r.cmsId" value="$!r.cmsId"/>
+<input type="hidden" id="organId" name="r.organId" value="all"/>

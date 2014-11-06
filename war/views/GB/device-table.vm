@@ -1,0 +1,14 @@
+<table width="100%" border="0" cellpadding="1" cellspacing="1" id="${position}T">
+		<tr class="tdTitle">
+			<td style="width:30%">设备名称</td>
+			<td>所属机构</td>
+	    </tr>
+	    #foreach($device in $resources)
+	    #parse("/views/r-s.vm")
+		<tr class="$class">
+			<td>$device.name</td>
+			<td>$device.organ.name</td>
+		</tr>
+		#end
+</table>
+	

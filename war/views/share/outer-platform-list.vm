@@ -1,0 +1,19 @@
+
+<div id="grantedLeft" class="userList">
+	<div class="title">外平台列表</div>
+	<form id="grantedForm">
+		<input type="hidden" name="r.original" value="true"/>
+		<input type="hidden" name="r.cmsId" value="$!r.cmsId"/>
+		<input type="hidden" name="r.first" value="false"/>
+		<div style="clear:both;">
+		平台名称:<input type="text" id="cmsName" name="r.name" value="" style="width:120px;" onkeydown="if(event.keyCode==13) { queryOuterPlatforms();return false}"/>
+			  <input type="button" value="查询" onclick="queryOuterPlatforms();"/>
+		</div>
+	</form>
+	<div id="userList">
+		#parse("/views/share/platform-table.vm")
+	</div>	
+</div>
+<div id="grantedRight" class="grantedPermission">
+	
+</div>

@@ -1,0 +1,19 @@
+<table width="100%" border="0" cellpadding="1" cellspacing="1" id="${position}T">
+		<tr class="tdTitle">
+			<td>名称</td>
+			<td>VIC总数</td>
+			<td>IPVIC总数</td>
+			<td>AIC总数</td>
+			<td>操作</td>
+	    </tr>
+	    #foreach($server in $resources)
+	    #parse("/views/r-s.vm")
+		<tr class="$class">
+			<td>$!server.name</td>		
+			<td>$!serverMap.get($server.id).vics</td>		
+			<td>$!serverMap.get($server.id).ipvics</td>		
+			<td>$!serverMap.get($server.id).aics</td>		
+			<td><input type="button" value="获取设备" onclick="getGBOuterDeviceByOrgan('$server.cmsId','$server.stdId');"/></td>		
+		</tr>
+		#end
+</table>

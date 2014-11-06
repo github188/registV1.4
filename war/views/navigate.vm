@@ -1,0 +1,48 @@
+<div class="page-header navbar navbar-fixed-top">
+	<div class="hor-menu hor-menu-light hidden-sm hidden-xs">
+			<ul class="nav navbar-nav">
+				<li class="classic-menu-dropdown active" onclick="grantedManage()" id="grantedManage">
+					<a href="javascript:;">
+                    权限管理<span class="selected"></span>
+					</a>
+				</li>
+				
+				 #if($shareResource=="yes")
+				<li class="classic-menu-dropdown" onclick="obtainManage()">
+					<a data-toggle="dropdown" href="javascript:;" class="dropdown-toggle" >
+					互联权限授予<span class="selected"></span>
+					</a>
+				</li>
+				 #end
+				 #*
+				<li class="classic-menu-dropdown" onclick="resourceShare()">
+					<a  href="javascript:;">
+					分级共享<span class="selected"></span>
+					</a>
+                </li>*#
+				<li class="classic-menu-dropdown"  onclick="platformManage('$cmsId')" id="platformManage">
+					<a href="javascript:;">
+					平台管理<span class="selected"></span>
+					</a>
+                </li>
+				<li class="classic-menu-dropdown"  onclick="organReset('$cmsId')" id="organReset">
+					<a href="javascript:;">
+					机构结构重置<span class="selected"></span>
+					</a>
+                </li>
+				<li class="classic-menu-dropdown" onclick="forGbShare('$cmsId')" id="forGbShare">
+					<a href="javascript:;">
+					国标共享<span class="selected"></span>
+					</a>
+                </li>
+				<li class="classic-menu-dropdown" onclick="forConfigManage('$cmsId')">
+					<a href="javascript:;">
+						配置管理<span class="selected"></span>
+					</a>
+                </li>
+			</ul>
+		</div>
+</div>
+
+
+

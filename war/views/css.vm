@@ -1,0 +1,3 @@
+<link href="$ctxpath/pub/css/home.css" rel="stylesheet" type="text/css" />
+<link href="$ctxpath/pub/css/page.css" rel="stylesheet" type="text/css" />
+<link href="$ctxpath/pub/jquery/jquery.ui.all.css" rel="stylesheet" type="text/css" />

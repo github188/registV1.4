@@ -1,0 +1,36 @@
+<div id="resourceList" style="padding-top:3px">
+#set($position="platformRight")
+#set($action="$ctxpath/gbPlatform/getResourcesByCmsId")
+<form id="queryResourceForm" >
+	<input type="hidden" name="cmsId" value="$cmsId"/>
+	<table>
+		<tr>
+			<td>资源类型:</td>
+			<td><select name="resourceType"  style="width:185px;" onchange="getResourcesByForm();">
+					#parse("/views/GB/resource-option.vm")
+				</select>
+			</td>
+<td>资源名称:</td>
+<td><input type="text" name="name" style="width:180px;" value="$!name" onkeydown="if(event.keyCode==13) { getResourcesByForm(); return false}"/>
+    <input type="button" id="query" value="查询资源" onclick="getResourcesByForm()"/></td>
+		</tr>
+	</table>
+</form>
+#if($resourceType=="ORGAN")
+#parse("/views/GB/organ-table.vm")
+#elseif($resourceType=="VIC" ||$resourceType=="IPVIC" || $resourceType=="AIC")
+#parse("/views/GB/device-table.vm")
+#elseif($resourceType=="VIS" ||$resourceType=="DVR")
+#parse("/views/GB/server-table.vm")
+#end
+<div style="clear:both;">
+	<form action="$action" id="${position}PageForm">
+		<input type="hidden" name="resourceType" value="$resourceType"/>
+		<input type="hidden" name="name" value="$!name"/>
+		<input type="hidden" name="cmsId" value="$cmsId"/>
+		#parse("/views/page.vm")
+	</form> 
+</div>
+</div>
+<div id="alertMsg" class="alertMsg" style="clear:right;	position:relative;top:50px;left:-50px;z-index:1000">
+</div>

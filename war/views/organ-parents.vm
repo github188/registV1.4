@@ -1,0 +1,9 @@
+#set($path="")
+#generalOrganPath($organ.parent $path)
+<div>$path</div>
+#macro(generalOrganPath $child $path)
+	#set($path=$child.name+"/"+$path)
+	#if($child.parent)
+		 #generalOrganPath($child.parent $path)
+	#end
+#end

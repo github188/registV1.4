@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<devices>
+	#foreach($device in $devices)
+		<device id="$device.id" ownerId="device.ownerId" permission="$device.permission"/> 
+	#end
+</devices>

@@ -1,0 +1,81 @@
+<table width="100%" border="0" cellpadding="1" cellspacing="1" id="${position}T">
+		<tr class="tdTitle">
+			<td style="width:60px">&nbsp;</td>
+			<td style="width:30%">设备名称</td>
+			<td>所属机构</td>
+			<td>所属平台</td>
+			#if($r.resourceType=="VIC" || $r.resourceType=="IPVIC")
+			<td colspan="5" style="width:30%">设备权限</td>
+			#end
+	    </tr>
+	    #foreach($device in $resources)
+	    #parse("/views/r-s.vm")
+		<tr class="$class">
+			#if($r.resourceType=="VIC" || $r.resourceType=="IPVIC")
+				<td>
+					<input type="checkbox" id="vic${device.id}0" name="${device.id}0" value="$device.id" #if($idsMap.get($device.id)) checked="true" #end  style="visibility:hidden;"/>
+					<input type="checkbox" id="vic${device.id}1" onclick="quickGrantedControlRow('vic${device.id}');" 
+						#if($idsMap.get($device.id) && $idsMap.get($device.id)!="000")
+							 checked="true" 
+						#end />
+				</td>
+				<td><div onmouseover='showTips(event,this,"/$device.organPath")'  onmouseout='hideTips(event,this);'>$device.name</div></td>
+				#set($organ=$device.organ)
+				#set($platform=$device.platform)
+				<td><div style="cursor:pointer;" ondblclick="setOrganIdForQuery('$platform.id','$platform.name','$organ.id','$organ.name')">$organ.name</div></td>		
+				<td>$device.platform.name</td>		
+				<td style="width:60px;"><input type="checkbox" id="vic${device.id}2" name="${device.id}2" onclick="grantedControlRow('vic${device.id}',2,7)"  #if($idsMap.get($device.id).substring(0,1)==1) checked="true"#end/>实时</td>
+				<td style="width:60px;"><input type="checkbox" id="vic${device.id}3" name="${device.id}3" onclick="grantedControlRow('vic${device.id}',3,7)" #if($idsMap.get($device.id).substring(1,2)==1) checked="true"#end/>历史</td>
+				<td style="width:60px;"><input type="checkbox" id="vic${device.id}4" name="${device.id}4" onclick="grantedControlRow('vic${device.id}',4,7)" #if($device.permission.substring(2,3)=="0")disabled="true" #else #if($idsMap.get($device.id).substring(2,3)==1) checked="true" #end #end/>云台</td>
+				<td style="width:60px;"><input type="checkbox" id="vic${device.id}5" name="${device.id}5" onclick="grantedControlRow('vic${device.id}',5,7)" #if($device.permission.substring(3,4)=="0")disabled="true" #else #if($idsMap.get($device.id).substring(3,4)==1) checked="true" #end #end/>预置位</td>
+				<td style="width:60px;"><input type="checkbox" id="vic${device.id}6" name="${device.id}6" onclick="grantedControlRow('vic${device.id}',6,7)" #if($idsMap.get($device.id).substring(4)==1) checked="true" #end/>抓拍</td>
+				#set($organ="")
+				#set($platform="")
+			#elseif($r.resourceType=="AIC")
+				<td style="text-align:center;"><input type="checkbox" id="${device.id}" name="$device.id" value="$device.id" #if($idsMap.get($device.id)) checked="true" #end/></td>
+				<td><div onmouseover='showTips(event,this,"/$device.organPath")'  onmouseout='hideTips(event,this);'>$device.name</div></td>
+				<td><div style="cursor:pointer;" ondblclick="setOrganIdForQuery('$device.platform.id','$device.platform.name','$device.organ.id','$device.organ.name')">$device.organ.name</div></td>
+				<td>$device.platform.name</td>	
+			#end		
+		</tr>
+		#end
+		
+			<tr class="$class">
+			#if($r.resourceType=="VIC" || $r.resourceType=="IPVIC")
+				<td style="text-align:center;"><a href="#" onclick="selectedAll('$position');" >全选</a>
+					<a href="#" onclick="grantedNocheckedFirstCol('$position',1,7);" >反选</a>
+				</td>
+				<td>&nbsp;</td>		
+				<td>&nbsp;</td>		
+				<td>&nbsp;</td>		
+				<td>
+					<a href="#"  onclick="grantedCheckCol('$position',2,7);">全选</a>
+					<a href="#"  onclick="grantedNocheckedCol('$position',2,7);">反选</a>
+				</td>
+				<td>
+					<a href="#" onclick="grantedCheckCol('$position',3,7);" >全选</a>
+					<a href="#" onclick="grantedNocheckedCol('$position',3,7);" >反选</a>
+				</td>
+				<td>
+					<a href="#" onclick="grantedCheckCol('$position',4,7);" >全选</a>
+					<a href="#" onclick="grantedNocheckedCol('$position',4,7);" >反选</a>
+				</td>
+				<td>
+					<a href="#" onclick="grantedCheckCol('$position',5,7);" >全选</a>
+					<a href="#" onclick="grantedNocheckedCol('$position',5,7);" >反选</a>
+				</td>
+				<td>
+					<a href="#" onclick="grantedCheckCol('$position',6,7);" >全选</a>
+					<a href="#" onclick="grantedNocheckedCol('$position',6,7);" >反选</a>
+				</td>
+			#else
+				<td style="text-align:center;"><a href="#" onclick="selectedAll('$position');" >全选</a>
+					<a href="#" onclick="selectedNochecked('$position');" >反选</a>
+				</td>
+				<td>&nbsp;</td>		
+				<td>&nbsp;</td>	
+				<td>&nbsp;</td>	
+			#end
+		</tr>
+	</table>
+	

@@ -1,0 +1,5 @@
+<div id="organ-1" class="option" onclick="selectOrgan('all','所有机构',$isOwner)">所有机构</div>
+#foreach($organ in $organs)
+	#set($next = $velocityCount+1)
+	<div id="organ${velocityCount}" class="option" onclick="selectOrgan('$organ.id','$organ.name',$isOwner)">$organ.name</div>
+#end

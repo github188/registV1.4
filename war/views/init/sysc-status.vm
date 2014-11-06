@@ -1,0 +1,49 @@
+<a class="btn btn-success " id="syscStatusModalEntry" data-target="#syscStatusModal" data-toggle="modal" style="visibility:hidden"></a>
+<input type="text" id="cmsId" value="" style="visibility:hidden"/>
+<div id="syscStatusModal" class="modal fade" tabindex="-1" data-width="400">
+        <div class="modal-dialog">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                 <h4 class="modal-title">平台数据状态信息</h4>
+              </div>
+              <div class="modal-body">
+                 <table class="table table-striped  table-bordered table-hover">
+                		<thead>
+                    		<tr>
+                    			<th style="width:32%">表名</th>
+                    			<th style="width:32%">已同步数</th>
+                    			<th style="width:32%">未同步数</th>
+                    		</tr>
+                        </thead>
+                		<tbody id="deviceList">
+                    		<tr class="odd gradeX">
+                        		<td>device_status</td>		
+                        		<td><div id="device_1">0</div></td>		
+                        		<td><div id="device_0">0</div></td>
+                            </tr>
+                    		<tr class="odd gradeX">
+                        		<td>organ_status</td>		
+                        		<td><div id="organ_1">0</div></td>		
+                        		<td><div id="organ_0">0</div></td>
+                            </tr>
+                    		<tr class="odd gradeX">
+                        		<td>vis_status</td>		
+                        		<td><div id="vis_1">0</div></td>		
+                        		<td><div id="vis_0">0</div></td>
+                            </tr>
+                        </tbody>
+                </table>
+                  <div style="text-align:center;">
+        			 <a href="javascript:;" class="btn btn-warning" onclick="InitConfig.clearSyncStatus()">
+                    	<i class="fa fa-times"></i>&nbsp;清除状态数据 
+                    </a> 
+					<a href="javascript:;" class="btn btn-info" onclick="InitConfig.triggerPush()">
+                    	<i class="fa fa-magic"></i>&nbsp;触发数据推送 
+                    </a> 
+                  </div>
+           </div>
+		   <div id='syncExecMsg' style="display: none;color:red"></div>
+        </div>
+        </div>
+</div>

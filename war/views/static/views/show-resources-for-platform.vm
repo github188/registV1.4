@@ -1,0 +1,14 @@
+[
+	{"id":"shareDetail","children":
+		[
+        	#foreach($share in $shares)
+				#if(${share.resourceType}=="device")
+        		{"id":"${share.resourceType}__$share.resourceId"}#if($velocityHasNext),#end
+				#else
+				{"id":"$share.resourceId"}#if($velocityHasNext),#end
+				#end
+        	#end
+		]
+	},
+	{"organ":"$organCount","device":"$deviceCount"}
+]

@@ -1,0 +1,17 @@
+#set($position="userNotHas")
+#set($action="$ctxpath/role/getUserForGranted")
+#set($selected=false)
+#set($showPageSize=true)
+<div class="notHasTitle">未拥有该角色的用户列表</div>
+<div id="userList1">
+#foreach($user in $userNotHasList)
+	<div class="myRow" style="background-color:#E9EEF5;" id="myRow1_$user.id"  ondblclick="movToLBydbClick('$user.id')"  onclick="changeColor('$user.id','myRow1_','#767676');"><div class="logonName" id="$user.id" style="background-color:#E9EEF5;">$user.logonName</div></div>
+#end
+</div>
+<form action="$action" id="${position}PageForm">
+	<input type="hidden" name="first" value="false"/>
+	<input type="hidden" name="roleId" value="$roleId"/>
+	<input type="hidden" name="ownerOrganId" value="$!ownerOrganId"/>
+	<input type="hidden" name="name" value="$!name"/>
+	#parse("/views/page.vm")
+</form> 

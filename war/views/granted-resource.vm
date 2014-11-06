@@ -1,0 +1,50 @@
+<div>
+	#if($granted.grantedType=="USER")	
+		<div class="title">用户: $granted.logonName  权限列表</div>
+	#else
+		<div class="title">角色: $granted.name  权限列表</div>
+	#end
+	<form id="userPermissionForm">
+		#parse("/views/resource-input.vm")
+		<input type="hidden" id="grantedType" name="r.grantedType" value="$granted.grantedType"/>
+		<input type="hidden" id="grantedId" name="r.grantedId" value="$granted.id"/>
+		<div style="float:left;border:0px solid red;width:95%;">
+		<table style="width: 95%;text-align: left;">
+			<tr>
+				<td align="right">数据来源:</td>
+				<td align="left">
+					<select name="dataSource" id="dataSource" style="width:135px;" onchange="getPlatformsByDataSource('$granted.id','$granted.grantedType');">
+						#if($hasChildren=="true")<option #if($dataSource=="CHILDREN") selected="true"#end value="CHILDREN">下级平台</option>#end
+						#if($shareResource == "true")<option #if($dataSource=="SHARE") selected="true"#end value="SHARE">互联共享</option>#end
+			   		</select>
+			   	</td>
+			   	<td align="right">类型:</td>
+			   	<td align="left"><select name="r.resourceType" id="type" style="width:135px;" onchange="queryPermissionByGrantedVisPost('resourceList','currentType');">
+						#parse("/views/resource-option.vm")
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td align="right">所在平台:</td>
+				<td align="left">
+					<select name="r.cmsId" id="platform" style="width:135px;">
+						#parse("/views/selected-platforms.vm")
+			   		</select>
+			   	</td>
+			   	<td align="right">名称:</td>
+			   	<td align="left">
+			   		<input type="text" name="r.name"  style="width:135px;" value="$!r.name" onkeydown="if(event.keyCode==13) {queryPermissionByGrantedVisPost('resourceList','type'); return false;}"/>
+					<input type="button" value="查询" onclick="queryPermissionByGrantedVisPost('resourceList','type');"/>
+					<input type="button" id="updatePermissionButton" onclick="updatePermissionByuser('resourceList','type')" value="修改"/>
+				</td>
+			</tr>
+		</table>
+		</div>
+	</form>
+</div>
+<div>
+<div id="resourceList" class="resourceList">
+#parse("/views/granted-resource-list.vm")
+</div>
+<div id="alertMsg" class="alertMsg" style="clear:right;height:20px;">
+</div>
